@@ -1,26 +1,171 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0a0a0a;
+  --foreground: #ededed;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@theme {
+  --font-geist: var(--font-geist), sans-serif;
+  --font-title: var(--font-montserrat), sans-serif;
+  --font-subtitle: var(--font-lato), sans-serif;
+  --font-body: var(--font-catamaran), sans-serif;
+  --font-mono: var(--font-vt323), monospace;
+
+  --animate-fade-in: fade-in 1s ease-out forwards;
+  --animate-fade-in-up: fade-in-up 0.8s ease-out forwards;
+  --animate-globe-in: globe-in 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-blink: blink 1s step-end infinite;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes globe-in {
+  from { opacity: 0; transform: scale(0.9) translateY(10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-catamaran), sans-serif;
+  cursor: url("/cursor/Pointer.cur"), default;
 }
+
+/* Bibata Custom Cursors System */
+html,
+body,
+.cursor-default,
+.cursor-auto {
+  cursor: url("/cursor/Pointer.cur"), default;
+}
+
+/* Internal Links, Buttons & Interactive Elements */
+a,
+button,
+[role="button"],
+input[type="submit"],
+input[type="button"],
+label[for],
+select,
+summary,
+.cursor-pointer {
+  cursor: url("/cursor/Link.cur"), pointer !important;
+}
+
+/* External Links (target="_blank" or external http/https) */
+a[target="_blank"],
+a[rel*="external"],
+a[href^="http"]:not([href*="localhost"]),
+.cursor-external {
+  cursor: url("/cursor/Alternate.cur"), pointer !important;
+}
+
+/* Loading, Busy & Background Work States */
+.cursor-wait,
+[aria-busy="true"],
+html.is-loading,
+html.is-loading * {
+  cursor: url("/cursor/Busy.cur"), url("/cursor/Busy.ani"), wait !important;
+}
+
+.cursor-progress,
+.is-working {
+  cursor: url("/cursor/Work.cur"), url("/cursor/Work.ani"), progress !important;
+}
+
+/* 3D Canvas & Dragging States (Pan & Grabbing) */
+.cursor-grab,
+.cursor-grab canvas {
+  cursor: url("/cursor/Pan.cur"), grab !important;
+}
+
+.cursor-grabbing,
+.cursor-grabbing canvas,
+.cursor-grab:active,
+.cursor-grab:active canvas,
+.active\:cursor-grabbing:active {
+  cursor: url("/cursor/Grabbing.cur"), grabbing !important;
+}
+
+/* Text Selection & Inputs */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[type="url"],
+input[type="tel"],
+input[type="number"],
+textarea,
+[contenteditable="true"],
+.cursor-text {
+  cursor: url("/cursor/Text.cur"), text !important;
+}
+
+/* Disabled / Unavailable Elements */
+:disabled,
+[disabled],
+[aria-disabled="true"],
+.cursor-not-allowed {
+  cursor: url("/cursor/Unavailable.cur"), not-allowed !important;
+}
+
+/* Additional Bibata Utility Cursors */
+.cursor-help,
+abbr[title] {
+  cursor: url("/cursor/Help.cur"), help !important;
+}
+
+.cursor-move {
+  cursor: url("/cursor/Move.cur"), move !important;
+}
+
+.cursor-crosshair {
+  cursor: url("/cursor/Cross.cur"), crosshair !important;
+}
+
+.cursor-zoom-in {
+  cursor: url("/cursor/Zoom-in.cur"), zoom-in !important;
+}
+
+.cursor-zoom-out {
+  cursor: url("/cursor/Zoom-out.cur"), zoom-out !important;
+}
+
+.cursor-pin {
+  cursor: url("/cursor/Pin.cur"), pointer !important;
+}
+
+.cursor-person {
+  cursor: url("/cursor/Person.cur"), pointer !important;
+}
+
+.cursor-ns-resize {
+  cursor: url("/cursor/Vert.cur"), ns-resize !important;
+}
+
+.cursor-ew-resize {
+  cursor: url("/cursor/Horz.cur"), ew-resize !important;
+}
+
+.cursor-nwse-resize {
+  cursor: url("/cursor/Dgn1.cur"), nwse-resize !important;
+}
+
+.cursor-nesw-resize {
+  cursor: url("/cursor/Dgn2.cur"), nesw-resize !important;
+}
+
