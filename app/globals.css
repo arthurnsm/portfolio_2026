@@ -16,6 +16,38 @@
   --animate-fade-in-up: fade-in-up 0.8s ease-out forwards;
   --animate-globe-in: globe-in 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   --animate-blink: blink 1s step-end infinite;
+  --animate-plane-fly: plane-fly 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.2s infinite;
+}
+
+@keyframes plane-fly {
+  0% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  40% {
+    transform: translate(26px, -26px);
+    opacity: 1;
+  }
+  41% {
+    transform: translate(26px, -26px);
+    opacity: 0;
+  }
+  42% {
+    transform: translate(-26px, 26px);
+    opacity: 0;
+  }
+  43% {
+    transform: translate(-26px, 26px);
+    opacity: 1;
+  }
+  75% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
 }
 
 @keyframes fade-in {
@@ -36,6 +68,10 @@
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -71,7 +107,7 @@ a[target="_blank"],
 a[rel*="external"],
 a[href^="http"]:not([href*="localhost"]),
 .cursor-external {
-  cursor: url("/cursor/Alternate.cur"), pointer !important;
+  cursor: url("/cursor/Link.cur"), pointer !important;
 }
 
 /* Loading, Busy & Background Work States */

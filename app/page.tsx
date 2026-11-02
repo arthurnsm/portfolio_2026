@@ -29,7 +29,7 @@ export default function Home() {
       {/* Main Portfolio Content */}
       <div className="flex-1 flex flex-col w-full">
         {/* Hero Section - Full Screen with Balanced 3D Globe */}
-        <section id="about" className="w-full min-h-screen flex items-center justify-between px-6 sm:px-12 md:px-20 lg:px-[144px] pt-24 pb-12 lg:py-0 relative overflow-hidden">
+        <section id="about" className="w-full min-h-screen flex items-center justify-between px-6 sm:px-12 md:px-20 lg:px-[144px] pt-24 pb-12 lg:py-0 relative overflow-hidden scroll-mt-24">
           {/* Permanent Subtle Grid Background (Layered at z-0 so it is always 100% visible) */}
           <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
             <div 
@@ -74,13 +74,13 @@ export default function Home() {
                 href="#projects"
                 className="px-8 py-4 sm:px-10 sm:py-4.5 rounded-xl bg-[#00ff41] text-black font-title font-bold text-base sm:text-lg lg:text-xl hover:bg-[#00e038] transition-all cursor-pointer active:scale-95"
               >
-                Ver meus Projetos
+                Entrar em Contato
               </a>
               <a 
                 href="#contact"
-                className="px-8 py-4 sm:px-9 sm:py-4.5 rounded-xl border-2 border-zinc-700 bg-zinc-900/80 font-bold hover:bg-zinc-800 hover:border-zinc-500 text-zinc-200 font-title text-base sm:text-lg lg:text-xl transition-all cursor-pointer flex items-center gap-2 active:scale-95"
+                className="px-8 py-4 sm:px-9 sm:py-4.5 rounded-xl border-2 border-zinc-700 bg-zinc-900/80 font-bold hover:bg-zinc-800 hover:border-[zinc-500 text-zinc-200 font-title text-base sm:text-lg lg:text-xl transition-all cursor-pointer flex items-center gap-2 active:scale-95"
               >
-                Entrar em Contato
+                Ver meus Projetos
               </a>
             </div>
 
@@ -98,7 +98,7 @@ export default function Home() {
         </section>
 
         {/* Setup / 3D Wireframe Monitor Section */}
-        <section id="setup" className="w-full px-6 sm:px-12 md:px-20 lg:px-[144px] py-24 border-t border-zinc-800/60 bg-zinc-950/60 relative z-20">
+        <section id="setup" className="w-full px-6 sm:px-12 md:px-20 lg:px-[144px] py-24 border-t border-zinc-800/60 bg-zinc-950/60 relative z-20 scroll-mt-24">
           <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="flex flex-col gap-5">
               <TypingTitle 
@@ -119,7 +119,7 @@ export default function Home() {
         </section>
 
         {/* Projects Section */}
-        <section id="projects" className="w-full px-6 sm:px-12 md:px-20 lg:px-[144px] py-24 border-t border-zinc-800/60 bg-zinc-950/30 relative z-20">
+        <section id="projects" className="w-full px-6 sm:px-12 md:px-20 lg:px-[144px] py-24 border-t border-zinc-800/60 bg-zinc-950/30 relative z-20 scroll-mt-24">
           <div className="w-full flex flex-col gap-12">
             <div className="flex flex-col gap-2">
               <TypingTitle 
@@ -187,7 +187,7 @@ export default function Home() {
         </section>
 
         {/* Skills Section */}
-        <section id="skills" className="w-full px-6 sm:px-12 md:px-20 lg:px-[144px] py-24 border-t border-zinc-800/60 relative z-20">
+        <section id="skills" className="w-full px-6 sm:px-12 md:px-20 lg:px-[144px] py-24 border-t border-zinc-800/60 relative z-20 scroll-mt-24">
           <div className="w-full flex flex-col gap-10">
             <div className="flex flex-col gap-2">
               <TypingTitle 
@@ -234,7 +234,7 @@ export default function Home() {
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="w-full px-6 sm:px-12 md:px-20 lg:px-[144px] py-20 relative z-20">
+        <section id="contact" className="w-full px-6 sm:px-12 md:px-20 lg:px-[144px] py-20 relative z-20 scroll-mt-24">
           <div className="rounded-2xl border border-zinc-800/80 bg-zinc-900/30 p-8 sm:p-14 flex flex-col sm:flex-row items-center justify-between gap-8 relative overflow-hidden">
             <div className="absolute -right-20 -bottom-20 w-80 h-80 bg-[#00ff41]/5 rounded-full blur-3xl pointer-events-none" />
             <div className="flex flex-col gap-2 text-center sm:text-left z-10">

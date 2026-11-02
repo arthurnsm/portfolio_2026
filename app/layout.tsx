@@ -40,7 +40,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="pt-BR"
-      className={`${geist.variable} ${montserrat.variable} ${lato.variable} ${catamaran.variable} ${vt323.variable} h-full antialiased`}
+      className={`${geist.variable} ${montserrat.variable} ${lato.variable} ${catamaran.variable} ${vt323.variable} h-full antialiased scroll-smooth`}
     >
       <body className="min-h-full flex flex-col font-body">{children}</body>
     </html>
