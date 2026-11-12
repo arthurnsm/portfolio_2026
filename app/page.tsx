@@ -1,23 +1,25 @@
 "use client";
 
 import WireframeGlobe from "@/components/WireframeGlobe";
-import WireframeMonitor from "@/components/WireframeMonitor";
+import PortfolioContent from "@/components/PortfolioContent";
+import DecodedText from "@/components/DecodedText";
 import Navbar from "@/components/navbar";
 import { BsGithub } from "react-icons/bs";
 import { BiLogoGmail } from "react-icons/bi";
 import { FaLinkedinIn } from "react-icons/fa";
 import Socialmedia from "@/components/socialmedia";
 import Stack from "@/components/stack";
-import TypingTitle from "@/components/TypingTitle";
+import "./portfolio.css";
 
 export default function Home() {
   return (
     <div className="min-h-screen w-full bg-[#0a0a0a] text-zinc-100 flex flex-col font-body selection:bg-[#00ff41] selection:text-black overflow-x-hidden relative">
       {/* Top Mask Overlay with Gradient */}
-      <div 
+      <div
         className="fixed top-0 left-0 right-0 h-[110px] z-40 pointer-events-none"
         style={{
-          background: "linear-gradient(to bottom, #0a0a0a 0px, #0a0a0a 50px, transparent 100%)"
+          background:
+            "linear-gradient(to bottom, #0a0a0a 0px, #0a0a0a 50px, transparent 100%)",
         }}
       />
 
@@ -29,10 +31,13 @@ export default function Home() {
       {/* Main Portfolio Content */}
       <div className="flex-1 flex flex-col w-full">
         {/* Hero Section - Full Screen with Balanced 3D Globe */}
-        <section id="about" className="w-full min-h-svh flex flex-col lg:flex-row items-center justify-between px-5 sm:px-10 md:px-12 lg:px-16 xl:px-[144px] pt-28 pb-10 lg:py-0 relative overflow-hidden scroll-mt-24">
+        <section
+          id="about"
+          className="w-full min-h-svh flex flex-col lg:flex-row items-center justify-between px-5 sm:px-10 md:px-12 lg:px-16 xl:px-[144px] pt-28 pb-10 lg:py-0 relative overflow-hidden scroll-mt-24"
+        >
           {/* Permanent Subtle Grid Background (Layered at z-0 so it is always 100% visible) */}
           <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-            <div 
+            <div
               className="w-full h-full opacity-30"
               style={{
                 backgroundImage: `
@@ -51,32 +56,36 @@ export default function Home() {
 
           {/* Left Column (Content) */}
           <div className="w-full lg:w-[62%] xl:w-[64%] flex flex-col items-start justify-center gap-6 sm:gap-7 z-20 py-0 pointer-events-auto lg:mt-20">
-            <h1 className="text-[clamp(2.25rem,9vw,4.5rem)] lg:text-[clamp(3.5rem,5.8vw,7rem)] font-title font-bold tracking-tight text-white leading-[1.06] opacity-0 animate-fade-in-up">
-              <span className="block">Arthur Roberto</span>
+            <h1 className="text-[clamp(2.25rem,9vw,4.5rem)] lg:text-[clamp(3.5rem,5.8vw,7rem)] font-title font-bold tracking-tight text-white leading-[1.06] ">
+              <span className="block">
+                <DecodedText text="Arthur Roberto" />
+              </span>
               <span className="bg-[#00ff41] block w-fit max-w-full px-4 py-1.5 sm:px-5 sm:py-2 mt-3 rounded-sm">
                 <span className="text-black text-[clamp(1.15rem,4.8vw,2.25rem)] lg:text-[clamp(1.5rem,2.8vw,3rem)] font-subtitle font-black tracking-tight block">
-                  Desenvolvedor Full Stack
+                  <DecodedText text="Desenvolvedor Full Stack" delay={160} />
                 </span>
               </span>
             </h1>
-            <div className="flex flex-wrap gap-2 sm:gap-3.5 mb-2 opacity-0 animate-fade-in-up [animation-delay:150ms]">
-              <Stack name="ReactJS"/>
-              <Stack name="NextJS"/>
-              <Stack name="TailwindCSS"/>
-              <Stack name="Typescript"/>
+            <div className="flex flex-wrap gap-2 sm:gap-3.5 mb-2 ">
+              <Stack name="ReactJS" />
+              <Stack name="NextJS" />
+              <Stack name="TailwindCSS" />
+              <Stack name="Typescript" />
             </div>
-            <p className="text-lg sm:text-xl lg:text-2xl xl:text-[1.55rem] font-body text-zinc-400 max-w-2xl xl:max-w-3xl leading-relaxed opacity-0 animate-fade-in-up [animation-delay:300ms]">
-              Construo interfaces web modernas de alta fidelidade com React, Next.js e TypeScript, unindo precisão visual em UI/UX a arquiteturas robustas e performáticas.
+            <p className="text-lg sm:text-xl lg:text-2xl xl:text-[1.55rem] font-body text-zinc-400 max-w-2xl xl:max-w-3xl leading-relaxed hero-copy-enter">
+              Construo interfaces web modernas de alta fidelidade com React,
+              Next.js e TypeScript, unindo precisão visual em UI/UX a
+              arquiteturas robustas e performáticas.
             </p>
 
-            <div className="flex w-full flex-col min-[420px]:flex-row flex-wrap items-stretch min-[420px]:items-center gap-3 sm:gap-5 pt-2 sm:pt-8 lg:pt-16 opacity-0 animate-fade-in-up [animation-delay:450ms]">
-              <a 
+            <div className="flex w-full flex-col min-[420px]:flex-row flex-wrap items-stretch min-[420px]:items-center gap-3 sm:gap-5 pt-2 sm:pt-8 lg:pt-16 ">
+              <a
                 href="#contact"
                 className="text-center px-6 py-4 sm:px-10 sm:py-4.5 rounded-xl bg-[#00ff41] text-black font-title font-bold text-base sm:text-lg lg:text-xl hover:bg-[#00e038] transition-all cursor-pointer active:scale-95"
               >
                 Entrar em Contato
               </a>
-              <a 
+              <a
                 href="#projects"
                 className="justify-center px-6 py-4 sm:px-9 sm:py-4.5 rounded-xl border-2 border-zinc-700 bg-zinc-900/80 font-bold hover:bg-zinc-800 hover:border-zinc-500 text-zinc-200 font-title text-base sm:text-lg lg:text-xl transition-all cursor-pointer flex items-center gap-2 active:scale-95"
               >
@@ -84,10 +93,22 @@ export default function Home() {
               </a>
             </div>
 
-            <div className="flex flex-row items-center gap-4 mt-3 opacity-0 animate-fade-in-up [animation-delay:600ms]">
-              <Socialmedia url="https://github.com" icon={BsGithub} label="GitHub" />
-              <Socialmedia url="mailto:arthur.roberto@example.com" icon={BiLogoGmail} label="E-mail" />
-              <Socialmedia url="https://linkedin.com" icon={FaLinkedinIn} label="LinkedIn" />
+            <div className="flex w-full justify-center md:justify-start flex-row items-center gap-4 mt-3 ">
+              <Socialmedia
+                url="https://github.com"
+                icon={BsGithub}
+                label="GitHub"
+              />
+              <Socialmedia
+                url="mailto:arthur.roberto@example.com"
+                icon={BiLogoGmail}
+                label="E-mail"
+              />
+              <Socialmedia
+                url="https://linkedin.com"
+                icon={FaLinkedinIn}
+                label="LinkedIn"
+              />
             </div>
           </div>
 
@@ -97,166 +118,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Setup / 3D Wireframe Monitor Section */}
-        <section id="setup" className="w-full px-5 sm:px-10 md:px-12 lg:px-16 xl:px-[144px] py-14 sm:py-20 lg:py-24 border-t border-zinc-800/60 bg-zinc-950/60 relative z-20 scroll-mt-24">
-          <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-12 items-center">
-            <div className="flex flex-col gap-5">
-              <TypingTitle 
-                text="Estação de Trabalho & Filosofia"
-                className="text-2xl sm:text-4xl font-title font-bold text-white" 
-              />
-              <p className="text-zinc-400 text-base sm:text-lg lg:text-xl font-body leading-relaxed max-w-2xl">
-                Acredito que o código limpo e o design intencional devem caminhar juntos. Trabalho com foco em ergonomia digital, microinterações responsivas e modelos 3D em WebGL que não sacrificam a velocidade da aplicação.
-              </p>
-            </div>
-
-            {/* 3D Monitor Canvas */}
-            <div className="w-full aspect-square max-w-[500px] mx-auto flex items-center justify-center relative">
-              <div className="absolute inset-0 bg-[#00ff41]/5 rounded-full blur-3xl pointer-events-none" />
-              <WireframeMonitor color="#00FF4C" className="w-full h-full max-w-[540px]" />
-            </div>
-          </div>
-        </section>
-
-        {/* Projects Section */}
-        <section id="projects" className="w-full px-5 sm:px-10 md:px-12 lg:px-16 xl:px-[144px] py-14 sm:py-20 lg:py-24 border-t border-zinc-800/60 bg-zinc-950/30 relative z-20 scroll-mt-24">
-          <div className="w-full flex flex-col gap-12">
-            <div className="flex flex-col gap-2">
-              <TypingTitle 
-                text="Projetos em Destaque"
-                className="text-2xl sm:text-4xl font-title font-bold text-white" 
-              />
-              <p className="text-zinc-400 text-sm sm:text-base font-subtitle">Aplicações, arquiteturas interativas e produtos em produção.</p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-              {[
-                {
-                  id: "01",
-                  title: "Cyberpunk Terminal Dashboard",
-                  desc: "Painel de controle em tempo real com telemetria WebGL, tema Matrix e visualização de dados reativa.",
-                  stack: ["Next.js 15", "TypeScript", "Three.js", "Tailwind"],
-                  status: "ONLINE",
-                },
-                {
-                  id: "02",
-                  title: "Nexus Design System & UI Kit",
-                  desc: "Biblioteca de componentes acessíveis, tokens semânticos e documentação interativa para equipes ágeis.",
-                  stack: ["React", "Tailwind CSS", "Storybook", "Framer"],
-                  status: "STABLE",
-                },
-                {
-                  id: "03",
-                  title: "Vector AI Canvas Engine",
-                  desc: "Interface para exploração de grafos vetoriais e conexões semânticas com renderização acelerada por GPU.",
-                  stack: ["TypeScript", "WebGL", "Canvas API", "Zustand"],
-                  status: "PROTOTYPE",
-                },
-              ].map((proj) => (
-                <div 
-                  key={proj.id}
-                  className="group relative rounded-xl border border-zinc-800/80 bg-zinc-900/30 min-w-0 p-5 sm:p-7 hover:border-[#00ff41]/60 hover:bg-zinc-900/70 transition-all duration-300 flex flex-col justify-between hover:shadow-[0_0_30px_rgba(0,255,65,0.12)] hover:-translate-y-1"
-                >
-                  <div className="flex flex-col gap-4">
-                    <div className="flex flex-wrap gap-2 items-center justify-between border-b border-zinc-800/60 pb-3">
-                       <span className="text-sm font-mono text-[#00ff41] tracking-wider">PROJECT_{proj.id}.tsx</span>
-                      <span className="text-sm font-mono px-2 py-0.5 rounded border border-[#00ff41]/30 bg-[#00ff41]/10 text-[#00ff41]">
-                        {proj.status}
-                      </span>
-                    </div>
-
-                    <h3 className="text-xl font-title font-bold text-zinc-100 group-hover:text-[#00ff41] transition-colors">
-                      {proj.title}
-                    </h3>
-                    <p className="text-sm text-zinc-400 font-body leading-relaxed">
-                      {proj.desc}
-                    </p>
-                  </div>
-
-                  <div className="flex flex-wrap items-center gap-2 pt-6 text-sm font-mono">
-                    {proj.stack.map((s) => (
-                      <span key={s} className="px-2.5 py-1 rounded-md bg-zinc-800/70 text-zinc-300 border border-zinc-700/40">
-                        {s}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Skills Section */}
-        <section id="skills" className="w-full px-5 sm:px-10 md:px-12 lg:px-16 xl:px-[144px] py-14 sm:py-20 lg:py-24 border-t border-zinc-800/60 relative z-20 scroll-mt-24">
-          <div className="w-full flex flex-col gap-10">
-            <div className="flex flex-col gap-2">
-              <TypingTitle 
-                text="Tech Stack & Habilidades"
-                className="text-2xl sm:text-4xl font-title font-bold text-white" 
-              />
-              <p className="text-zinc-400 text-sm sm:text-base font-subtitle">Domínio técnico estruturado por especialidades de desenvolvimento.</p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-              {[
-                {
-                  category: "Frontend & Core",
-                  items: ["React", "Next.js", "TypeScript", "JavaScript (ES6+)", "HTML5 & Semantic Web", "Tailwind CSS"],
-                },
-                {
-                  category: "Creative & 3D Web",
-                  items: ["Three.js", "WebGL / Shaders", "CSS Animations", "UI/UX Design", "Figma", "Microinteractions"],
-                },
-                {
-                  category: "Ecossistema & Ferramentas",
-                  items: ["Git & GitHub", "REST APIs", "Node.js", "PostgreSQL", "Docker", "Linux / Bash"],
-                },
-              ].map((cat) => (
-                <div key={cat.category} className="min-w-0 p-5 sm:p-6 rounded-xl border border-zinc-800/80 bg-zinc-900/30 flex flex-col gap-4">
-                  <div className="text-base font-mono text-[#00ff41] border-b border-zinc-800/80 pb-2 flex flex-wrap gap-2 items-center justify-between">
-                    <span>{"// "}{cat.category}</span>
-                    <span className="text-xs text-zinc-400">{cat.items.length} ITENS</span>
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    {cat.items.map((tech) => (
-                      <span 
-                        key={tech}
-                        className="px-3.5 py-1.5 rounded-lg border border-zinc-800 bg-zinc-900/60 text-zinc-300 font-subtitle text-xs sm:text-sm hover:border-[#00ff41]/50 hover:text-[#00ff41] hover:bg-zinc-900 transition-colors shadow-sm"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Contact Section */}
-        <section id="contact" className="w-full px-5 sm:px-10 md:px-12 lg:px-16 xl:px-[144px] py-14 sm:py-20 relative z-20 scroll-mt-24">
-          <div className="rounded-2xl border border-zinc-800/80 bg-zinc-900/30 p-5 sm:p-8 xl:p-14 flex flex-col lg:flex-row items-center justify-between gap-8 relative overflow-hidden">
-            <div className="absolute -right-20 -bottom-20 w-80 h-80 bg-[#00ff41]/5 rounded-full blur-3xl pointer-events-none" />
-            <div className="flex flex-col gap-2 text-center lg:text-left z-10">
-              <TypingTitle 
-                text="Vamos construir algo incrível juntos?"
-                className="text-2xl sm:text-3xl font-title font-bold text-white justify-center lg:justify-start"
-              />
-              <p className="text-sm sm:text-base text-zinc-400 font-subtitle">Entre em contato para novas oportunidades, projetos desafiadores ou parcerias.</p>
-            </div>
-            <a 
-              href="mailto:arthur.roberto@example.com"
-              className="w-full sm:w-auto text-center shrink-0 px-6 sm:px-8 py-4 rounded-lg bg-[#00ff41] text-black font-title font-bold text-sm hover:bg-[#00e038] transition-all whitespace-nowrap active:scale-95 z-10"
-            >
-              Iniciar Conversa
-            </a>
-          </div>
-        </section>
-
-        {/* Footer */}
-        <footer className="border-t border-zinc-800/80 py-8 px-5 sm:px-10 md:px-12 lg:px-16 xl:px-[144px] text-center text-sm text-zinc-400 font-mono relative z-20">
-          © {new Date().getFullYear()} Arthur Roberto. Todos os direitos reservados.
-        </footer>
+        <PortfolioContent />
       </div>
     </div>
   );

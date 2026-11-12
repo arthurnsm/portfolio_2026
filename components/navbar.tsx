@@ -42,7 +42,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sectionIds = ["about", "setup", "projects", "skills", "contact"];
+      const sectionIds = ["about", "setup", "projects", "experience", "skills", "process", "notes", "contact"];
       const scrollY = window.scrollY;
       const windowHeight = window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;

@@ -8,7 +8,7 @@ interface TypingTitleProps {
 }
 
 export default function TypingTitle({ text, className = "" }: TypingTitleProps) {
-  const [displayedText, setDisplayedText] = useState("");
+  const [displayedText, setDisplayedText] = useState(text);
   const containerRef = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
@@ -16,6 +16,7 @@ export default function TypingTitle({ text, className = "" }: TypingTitleProps) 
     const observer = new IntersectionObserver(([entry]) => {
       if (!entry.isIntersecting) return;
       observer.disconnect();
+      setDisplayedText("");
       let index = 0;
       interval = setInterval(() => {
         index += 1;
