@@ -29,10 +29,11 @@ export default function WireframeMonitor({
       antialias: true,
       powerPreference: "high-performance",
     });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, window.matchMedia("(pointer: coarse)").matches ? 1.5 : 2));
     renderer.setClearColor(0x000000, 0);
 
     const domElement = renderer.domElement;
+    domElement.style.touchAction = "pan-y pinch-zoom";
     domElement.style.display = "block";
     domElement.style.width = "100%";
     domElement.style.height = "100%";
@@ -40,10 +41,13 @@ export default function WireframeMonitor({
 
     const handleResize = () => {
       if (!container) return;
-      const size = Math.max(container.clientWidth, container.clientHeight, 340);
-      camera.aspect = 1;
+      const width = Math.max(container.clientWidth, 1);
+      const height = Math.max(container.clientHeight, 1);
+      camera.aspect = width / height;
+      // Fit the complete model even in a narrow container.
+      camera.zoom = Math.min(1, camera.aspect);
       camera.updateProjectionMatrix();
-      renderer.setSize(size, size, false);
+      renderer.setSize(width, height, false);
     };
 
     handleResize();
@@ -52,6 +56,12 @@ export default function WireframeMonitor({
       handleResize();
     });
     resizeObserver.observe(container);
+
+    let isVisible = true;
+    const visibilityObserver = new IntersectionObserver(([entry]) => {
+      isVisible = entry.isIntersecting;
+    });
+    visibilityObserver.observe(container);
 
     // 2. Materials (Matrix Neon Green with Hover Support & Solid Occlusion)
     const baseColor = new THREE.Color(color);
@@ -589,12 +599,15 @@ export default function WireframeMonitor({
     domElement.addEventListener("pointerdown", onPointerDown);
     window.addEventListener("pointermove", onPointerMove);
     window.addEventListener("pointerup", onPointerUp);
+    window.addEventListener("pointercancel", onPointerUp);
 
     // 5. Animation Loop
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     let animationFrameId: number;
     let clock = 0;
     const animate = () => {
       animationFrameId = requestAnimationFrame(animate);
+      if (!isVisible || document.hidden) return;
       clock += 0.05;
 
       // Terminal cursor blink (step on/off like a real CRT terminal)
@@ -605,7 +618,7 @@ export default function WireframeMonitor({
       edgeMaterial.color.lerp(targetColor, 0.08);
       stripeMaterial.color.lerp(targetColor, 0.08);
 
-      if (!isDragging) {
+      if (!isDragging && !reducedMotion.matches) {
         rotationVelocityY = THREE.MathUtils.lerp(
           rotationVelocityY,
           0.0022,
@@ -627,14 +640,23 @@ export default function WireframeMonitor({
     return () => {
       cancelAnimationFrame(animationFrameId);
       resizeObserver.disconnect();
+      visibilityObserver.disconnect();
       container.removeEventListener("pointerenter", onPointerEnter);
       container.removeEventListener("pointerleave", onPointerLeave);
       domElement.removeEventListener("pointerdown", onPointerDown);
       window.removeEventListener("pointermove", onPointerMove);
       window.removeEventListener("pointerup", onPointerUp);
+      window.removeEventListener("pointercancel", onPointerUp);
       if (container.contains(domElement)) {
         container.removeChild(domElement);
       }
+      scene.traverse((object) => {
+        if (object instanceof THREE.Mesh || object instanceof THREE.Line) {
+          object.geometry.dispose();
+          const materials = Array.isArray(object.material) ? object.material : [object.material];
+          materials.forEach((material) => material.dispose());
+        }
+      });
       scene.clear();
       renderer.dispose();
     };
