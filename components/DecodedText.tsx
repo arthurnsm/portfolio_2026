@@ -11,7 +11,7 @@ interface DecodedTextProps {
 }
 
 const GLYPHS = "01<>/_-+*";
-const DURATION = 680;
+const DURATION = 280;
 
 /** A brief terminal decode; the original text always determines layout and meaning. */
 export default function DecodedText({
@@ -66,7 +66,7 @@ export default function DecodedText({
   }, [text]);
 
   useEffect(() => {
-    const timer = window.setTimeout(decode, 180 + delay);
+    const timer = window.setTimeout(decode, 60 + delay);
     return () => {
       window.clearTimeout(timer);
       if (frameRef.current !== null) cancelAnimationFrame(frameRef.current);

@@ -8,14 +8,11 @@ import {
   Check,
   Plus,
   Minus,
-  Terminal,
   X,
-  DownloadSimple,
-  Code,
   ArrowUp,
 } from "@phosphor-icons/react";
 import WireframeMonitor from "./WireframeMonitor";
-import WireframeCore from "./WireframeCore";
+import GitHubActivity from "./GitHubActivity";
 import TypingTitle from "./TypingTitle";
 import { portfolio, type PortfolioProject } from "@/data/portfolio";
 
@@ -33,28 +30,10 @@ function SectionTitle({
   return (
     <div className="section-heading" data-reveal>
       <p className="system-label">
-        <span className="section-index">{index}</span> {label}
+        <span className="section-index">{index} /</span> {label}
       </p>
       <TypingTitle text={title} className="section-title" />
       {children ? <p className="section-description">{children}</p> : null}
-    </div>
-  );
-}
-
-function WindowBar({
-  title,
-  status = "READ ONLY",
-}: {
-  title: string;
-  status?: string;
-}) {
-  return (
-    <div className="window-bar">
-      <span className="flex items-center gap-2">
-        <span className="window-square" />
-        {title}
-      </span>
-      <span className="window-status">{status}</span>
     </div>
   );
 }
@@ -65,10 +44,6 @@ function ProjectVisual({ project }: { project: PortfolioProject }) {
       className={`project-visual visual-${project.visual}`}
       aria-hidden="true"
     >
-      <div className="visual-topline">
-        <span>AR / {project.id}</span>
-        <span>LOCAL BUILD</span>
-      </div>
       {project.visual === "terminal" ? (
         <div className="preview-terminal">
           <div className="preview-sidebar">
@@ -118,15 +93,8 @@ function ProjectVisual({ project }: { project: PortfolioProject }) {
           <div className="orbit-ring orbit-two" />
           <div className="orbit-ring orbit-three" />
           <span className="orbit-center" />
-          <span className="orbit-coordinate">X 024 / Y 128 / Z 064</span>
         </div>
       )}
-      <div className="visual-bottomline">
-        <span>
-          FIG. {project.id} — {project.category.toUpperCase()}
-        </span>
-        <span className="visual-cross">+</span>
-      </div>
     </div>
   );
 }
@@ -238,11 +206,9 @@ export default function PortfolioContent() {
   const [filter, setFilter] = useState("Todos");
   const [selectedProject, setSelectedProject] =
     useState<PortfolioProject | null>(null);
-  const [skillIndex, setSkillIndex] = useState(0);
   const [copied, setCopied] = useState(false);
   const [copyError, setCopyError] = useState(false);
   const copyTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const skill = portfolio.skills[skillIndex];
   const projectYears = portfolio.projects.map((project) => project.year).sort();
   const hasDemoExperience = portfolio.experience.some((item) => item.isDemo);
   const projects = portfolio.projects.filter(
@@ -253,7 +219,9 @@ export default function PortfolioContent() {
     const root = rootRef.current;
     if (!root || window.matchMedia("(prefers-reduced-motion: reduce)").matches)
       return;
-    const elements = root.querySelectorAll<HTMLElement>("[data-reveal]");
+    const elements = root.querySelectorAll<HTMLElement>(
+      "[data-reveal], .portfolio-section",
+    );
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -267,7 +235,8 @@ export default function PortfolioContent() {
     );
     elements.forEach((element) => {
       // Progressive enhancement: content is readable before JS or without motion.
-      element.classList.add("reveal-enabled");
+      if (element.hasAttribute("data-reveal"))
+        element.classList.add("reveal-enabled");
       observer.observe(element);
     });
     return () => observer.disconnect();
@@ -291,109 +260,32 @@ export default function PortfolioContent() {
     }
   };
 
-  const downloadProfile = () => {
-    const text = `${portfolio.profile.name}\n${portfolio.profile.role}\n\n${portfolio.isDemo || hasDemoExperience ? "PERFIL DEMONSTRATIVO — substitua os dados antes de usar.\n\n" : ""}${portfolio.profile.bio.join("\n\n")}\n\nTRAJETÓRIA\n${portfolio.experience.map((item) => `${item.period} | ${item.title} — ${item.company}\n${item.description}`).join("\n\n")}\n\nCONTATO\n${portfolio.contact.email}`;
-    const url = URL.createObjectURL(
-      new Blob([text], { type: "text/plain;charset=utf-8" }),
-    );
-    const anchor = document.createElement("a");
-    anchor.href = url;
-    anchor.download = `arthur-roberto-perfil${portfolio.isDemo ? "-demo" : ""}.txt`;
-    document.body.appendChild(anchor);
-    anchor.click();
-    anchor.remove();
-    setTimeout(() => URL.revokeObjectURL(url), 1000);
-  };
-
   return (
     <div ref={rootRef} className="portfolio-content">
-      <div className="system-strip content-width">
-        <span>
-          <span className="status-led" /> AR / PERSONAL WORKSTATION
-        </span>
-        {portfolio.isDemo ? (
-          <span className="demo-build">
-            BUILD DE CONCEITO · DADOS DEMONSTRATIVOS
-          </span>
-        ) : (
-          <span className="demo-build">INDEPENDENT DEVELOPMENT / BRASIL</span>
-        )}
-      </div>
-
-      <nav
-        className="workstation-index content-width"
-        aria-label="Explorar o portfólio"
-      >
-        <span className="system-label">DIR /</span>
-        {[
-          { label: "Perfil", href: "#setup" },
-          { label: "Projetos", href: "#projects" },
-          { label: "Trajetória", href: "#experience" },
-          { label: "Ferramentas", href: "#skills" },
-          { label: "Processo", href: "#process" },
-          { label: "Notas", href: "#notes" },
-        ].map((link) => (
-          <a key={link.href} href={link.href}>
-            {link.label}
-            <ArrowUpRight size={13} />
-          </a>
-        ))}
-      </nav>
-
       <section id="setup" className="portfolio-section section-workstation">
         <div className="content-width">
           <div className="workstation-grid">
-            <div data-reveal>
+            <div className="profile-copy" data-reveal>
               <SectionTitle
                 index="01"
                 label="QUEM ESTÁ NO TERMINAL"
                 title="Entre o pixel e o sistema."
               />
               <p className="about-intro">{portfolio.profile.intro}</p>
-              {portfolio.profile.bio.map((paragraph) => (
+              {portfolio.profile.bio.slice(0, 2).map((paragraph) => (
                 <p key={paragraph} className="body-copy">
                   {paragraph}
                 </p>
               ))}
-              <div className="profile-facts">
-                {portfolio.profile.facts.map((fact) => (
-                  <div key={fact.label}>
-                    <span>{fact.label}</span>
-                    <p>{fact.value}</p>
-                  </div>
-                ))}
-              </div>
-              <button className="text-link" onClick={downloadProfile}>
-                <DownloadSimple size={20} /> Baixar perfil em .txt{" "}
-                {portfolio.isDemo ? (
-                  <span className="mini-tag">DEMO</span>
-                ) : null}
-              </button>
             </div>
-            <div className="workstation-window" data-reveal>
-              <WindowBar title="workstation.exe" status="INTERACTIVE" />
+            <div className="workstation-model" data-reveal>
               <div className="monitor-stage">
-                <span className="stage-coordinate">VIEW_01 / CRT</span>
                 <WireframeMonitor color="#00FF4C" />
-                <span className="stage-bracket bracket-tl" />
-                <span className="stage-bracket bracket-br" />
               </div>
-              <div className="model-caption">
-                <span>
-                  <span className="status-led" /> INPUT READY
-                </span>
-                <span>Arraste para explorar ↔</span>
-              </div>
+              <p className="model-hint">
+                Arraste para explorar <span aria-hidden="true">↔</span>
+              </p>
             </div>
-          </div>
-          <div className="principle-row">
-            {portfolio.profile.principles.map((principle, i) => (
-              <div key={principle.title} data-reveal>
-                <span className="system-label neon">[ 0{i + 1} ]</span>
-                <h3>{principle.title}</h3>
-                <p>{principle.description}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -473,14 +365,9 @@ export default function PortfolioContent() {
             ))}
           </div>
           <div className="section-footnote">
-            <span className="system-label">ARQUIVO ABERTO</span>
-            <p>
-              {portfolio.projects.some((project) => project.isDemo)
-                ? "Projetos demonstrativos. "
-                : ""}
-              Um espaço para mostrar problema, processo e entrega — além da tela
-              final.
-            </p>
+            {portfolio.projects.some((project) => project.isDemo) ? (
+              <p>Projetos demonstrativos.</p>
+            ) : null}
             <a
               href={portfolio.profile.github}
               target="_blank"
@@ -503,18 +390,11 @@ export default function PortfolioContent() {
             >
               As experiências que mudaram minha maneira de pensar software.
             </SectionTitle>
-            <div className="file-label">
-              <Terminal size={22} />
-              <span>
-                career.log
-                <br />
-                <small>
-                  {hasDemoExperience
-                    ? "Entradas de exemplo / substitua pelas suas"
-                    : "Experiências, projetos e aprendizado"}
-                </small>
-              </span>
-            </div>
+            {hasDemoExperience ? (
+              <p className="demo-note experience-demo">
+                Trajetória demonstrativa.
+              </p>
+            ) : null}
           </div>
           <div className="timeline">
             {portfolio.experience.map((item, i) => (
@@ -548,138 +428,15 @@ export default function PortfolioContent() {
         </div>
       </section>
 
-      <section id="skills" className="portfolio-section section-modules">
+      <section id="github" className="portfolio-section section-github">
         <div className="content-width">
-          <SectionTitle
-            index="04"
-            label="DENTRO DA MÁQUINA"
-            title="Ferramentas com propósito."
-          >
-            Não é uma lista de logos. É como as peças se conectam para resolver
-            um problema.
-          </SectionTitle>
-          <div className="modules-grid">
-            <div className="module-list">
-              {portfolio.skills.map((item, index) => (
-                <button
-                  key={item.id}
-                  onClick={() => setSkillIndex(index)}
-                  aria-pressed={skillIndex === index}
-                  aria-controls="module-output"
-                  className="module-button"
-                >
-                  <span className="module-number">0{index + 1}</span>
-                  <span>
-                    <strong>{item.label}</strong>
-                    <small>{item.tools.slice(0, 3).join(" / ")}</small>
-                  </span>
-                  <ArrowUpRight size={22} />
-                </button>
-              ))}
-            </div>
-            <div className="module-display">
-              <div className="core-stage">
-                <WireframeCore />
-                <span className="core-label system-label">
-                  AR-01 / CORE MODULE
-                </span>
-              </div>
-              <div
-                className="module-output"
-                id="module-output"
-                aria-live="polite"
-                aria-atomic="true"
-              >
-                <p key={skill.id} className="module-command">
-                  <span>➜</span> {skill.command}
-                </p>
-                <p>{skill.description}</p>
-                <div className="tech-list">
-                  {skill.tools.map((tool) => (
-                    <span key={tool}>{tool}</span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="process" className="portfolio-section">
-        <div className="content-width">
-          <SectionTitle
-            index="05"
-            label="DO BRIEF AO DEPLOY"
-            title="O processo também é produto."
-          />
-          <div className="process-grid">
-            {portfolio.process.map((step) => (
-              <article className="process-step" key={step.number} data-reveal>
-                <div className="process-path">
-                  <span>{step.number}</span>
-                  <ArrowRight size={18} />
-                </div>
-                <h3>{step.title}</h3>
-                <p>{step.description}</p>
-                <div className="process-deliverable">
-                  <span>OUTPUT</span>
-                  {step.deliverable}
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="notes" className="portfolio-section">
-        <div className="content-width">
-          <div className="section-heading-row">
-            <SectionTitle
-              index="06"
-              label="CADERNO DE BORDO"
-              title="Anotações entre commits."
-            >
-              Pequenas descobertas, decisões de projeto e coisas que valem
-              registrar.
-            </SectionTitle>
-            <Code size={44} weight="thin" className="text-zinc-500" />
-          </div>
-          <div className="notes-list">
-            {portfolio.notes.map((note) => (
-              <details className="note-entry" key={note.id} data-reveal>
-                <summary>
-                  <span className="note-tag">{note.tag}</span>
-                  <span className="note-title">
-                    {note.title}
-                    <small>{note.excerpt}</small>
-                  </span>
-                  <span className="note-meta">
-                    {note.readTime}
-                    <span>{note.date}</span>
-                  </span>
-                  <Plus className="details-plus" size={22} />
-                  <Minus className="details-minus" size={22} />
-                </summary>
-                <div className="note-body">
-                  {note.body.map((paragraph) => (
-                    <p key={paragraph}>{paragraph}</p>
-                  ))}
-                  {note.isDemo ? (
-                    <span className="demo-note">
-                      Nota demonstrativa / editável
-                    </span>
-                  ) : null}
-                </div>
-              </details>
-            ))}
-          </div>
+          <GitHubActivity />
         </div>
       </section>
 
       <section id="contact" className="portfolio-section section-contact">
         <div className="content-width">
-          <div className="contact-window" data-reveal>
-            <WindowBar title="new_connection.sh" status="AWAITING INPUT" />
+          <div className="contact-area" data-reveal>
             <div className="contact-inner">
               <p className="system-label neon">
                 <span className="status-led" /> {portfolio.contact.availability}
@@ -693,11 +450,6 @@ export default function PortfolioContent() {
               <p className="contact-description">
                 {portfolio.contact.description}
               </p>
-              <div className="contact-topics">
-                {portfolio.contact.topics.map((topic) => (
-                  <span key={topic}>{topic}</span>
-                ))}
-              </div>
               <div className="contact-address">
                 <a href={`mailto:${portfolio.contact.email}`}>
                   {portfolio.contact.email}
@@ -755,7 +507,6 @@ export default function PortfolioContent() {
         <span>
           © {new Date().getFullYear()} {portfolio.profile.name}
         </span>
-        <span className="system-label">DESIGN INTENCIONAL. CÓDIGO ABERTO.</span>
       </footer>
       <CaseStudy
         project={selectedProject}
