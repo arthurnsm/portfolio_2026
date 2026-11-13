@@ -10,6 +10,7 @@ import { FaLinkedinIn } from "react-icons/fa";
 import Socialmedia from "@/components/socialmedia";
 import Stack from "@/components/stack";
 import "./portfolio.css";
+import { portfolio } from "@/data/portfolio";
 
 export default function Home() {
   return (
@@ -58,11 +59,11 @@ export default function Home() {
           <div className="w-full lg:w-[62%] xl:w-[64%] flex flex-col items-start justify-center gap-6 sm:gap-7 z-20 py-0 pointer-events-auto lg:mt-20">
             <h1 className="text-[clamp(2.25rem,9vw,4.5rem)] lg:text-[clamp(3.5rem,5.8vw,7rem)] font-title font-bold tracking-tight text-white leading-[1.06] ">
               <span className="block">
-                <DecodedText text="Arthur Roberto" />
+                <DecodedText text={portfolio.profile.name} />
               </span>
               <span className="bg-[#00ff41] block w-fit max-w-full px-4 py-1.5 sm:px-5 sm:py-2 mt-3 rounded-sm">
                 <span className="text-black text-[clamp(1.15rem,4.8vw,2.25rem)] lg:text-[clamp(1.5rem,2.8vw,3rem)] font-subtitle font-black tracking-tight block">
-                  <DecodedText text="Desenvolvedor Full Stack" delay={160} />
+                  <DecodedText text={portfolio.profile.role} delay={160} />
                 </span>
               </span>
             </h1>
@@ -95,17 +96,17 @@ export default function Home() {
 
             <div className="flex w-full justify-center md:justify-start flex-row items-center gap-4 mt-3 ">
               <Socialmedia
-                url="https://github.com"
+                url={portfolio.profile.github}
                 icon={BsGithub}
                 label="GitHub"
               />
               <Socialmedia
-                url="mailto:arthur.roberto@example.com"
+                url={`mailto:${portfolio.profile.email}`}
                 icon={BiLogoGmail}
                 label="E-mail"
               />
               <Socialmedia
-                url="https://linkedin.com"
+                url={portfolio.profile.linkedin}
                 icon={FaLinkedinIn}
                 label="LinkedIn"
               />

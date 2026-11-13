@@ -32,8 +32,9 @@ const vt323 = VT323({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio",
-  description: "Portfolio de Engenharia de Software e Desenvolvimento Full Stack",
+  title: "Arthur Roberto | Desenvolvimento web",
+  description:
+    "Projetos de Arthur Roberto: interfaces com React e TypeScript, APIs e experimentos em segurança. Código, estudos e contato.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
