@@ -51,7 +51,7 @@ export default function TypingTitle({ text, className = "", showPrefix = true }:
       <span className="inline-flex items-center">
         {displayedText}
         <span 
-          className="inline-block bg-[#00ff41] ml-2 sm:ml-3 animate-blink" 
+          className="inline-block bg-[#B9F503] ml-2 sm:ml-3 animate-blink" 
           style={{ width: '0.45em', height: '0.9em', transform: 'translateY(2px)' }}
         />
       </span>

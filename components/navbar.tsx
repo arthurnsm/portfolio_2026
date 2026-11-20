@@ -84,9 +84,9 @@ export default function Navbar() {
         onClick={(e) => handleClick(e, "about")}
         className="group flex items-center gap-2 font-title font-bold text-[17px] sm:text-[19px] tracking-tight text-white hover:opacity-90 transition-opacity"
       >
-        <span className="font-mono text-[#00ff41] text-[15px] opacity-75">&lt;</span>
+        <span className="font-mono text-[#B9F503] text-[15px] opacity-75">&lt;</span>
         <span className="tracking-wider">AR</span>
-        <span className="font-mono text-[#00ff41] text-[15px] opacity-75">/&gt;</span>
+        <span className="font-mono text-[#B9F503] text-[15px] opacity-75">/&gt;</span>
       </a>
 
       {/* Navigation Links */}
@@ -131,7 +131,7 @@ export default function Navbar() {
         <a
           href="#contact"
           onClick={(e) => handleClick(e, "contact")}
-          className="group/btn inline-flex items-center font-geist px-5 py-2 rounded-xl border border-[#00ff41] text-[#00ff41] hover:bg-[#00ff41] hover:text-zinc-900 duration-200 transition-colors text-[15px] tracking-wider transition-all cursor-pointer font-medium"
+          className="group/btn inline-flex items-center font-geist px-5 py-2 rounded-xl border border-[#B9F503] text-[#B9F503] hover:bg-[#B9F503] hover:text-zinc-900 duration-200 transition-colors text-[15px] tracking-wider transition-all cursor-pointer font-medium"
         >
           <span className="hidden sm:flex items-center gap-2">
             Entrar em contato

@@ -9,7 +9,7 @@ interface WireframeGlobeProps {
 }
 
 export default function WireframeGlobe({
-  color = "#00FF4C",
+  color = "#5C29EA",
   className = "",
 }: WireframeGlobeProps) {
   const mountRef = useRef<HTMLDivElement | null>(null);
@@ -108,7 +108,7 @@ export default function WireframeGlobe({
     const defaultTiltX = 0.45;
 
     const baseColor = new THREE.Color(color);
-    const hoverColor = new THREE.Color("#00C83D");
+    const hoverColor = new THREE.Color("#5C29EA");
     let isHovered = false;
 
     const onPointerDown = (e: PointerEvent) => {
@@ -133,12 +133,12 @@ export default function WireframeGlobe({
 
     const onPointerOver = () => {
       isHovered = true;
-      container.style.filter = "drop-shadow(0 0 5px rgba(0, 200, 61, 0.6))";
+      container.style.filter = "drop-shadow(0 0 5px rgba(92, 41, 234, 0.6))";
     };
 
     const onPointerOut = () => {
       isHovered = false;
-      container.style.filter = "drop-shadow(0 0 3px rgba(0, 255, 76, 0.45))";
+      container.style.filter = "drop-shadow(0 0 3px rgba(92, 41, 234, 0.45))";
     };
 
     domElement.addEventListener("pointerdown", onPointerDown);
@@ -191,7 +191,7 @@ export default function WireframeGlobe({
       ref={mountRef}
       className={`w-full h-full aspect-square cursor-grab active:cursor-grabbing select-none relative flex items-center justify-center ${className}`}
       style={{
-        filter: "drop-shadow(0 0 3px rgba(0, 255, 76, 0.45))",
+        filter: "drop-shadow(0 0 3px rgba(92, 41, 234, 0.45))",
         transition: "filter 0.5s ease",
       }}
     />

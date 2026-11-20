@@ -12,12 +12,12 @@ import TypingTitle from "@/components/TypingTitle";
 
 export default function Home() {
   return (
-    <div className="min-h-screen w-full bg-[#0a0a0a] text-zinc-100 flex flex-col font-body selection:bg-[#00ff41] selection:text-black overflow-x-hidden relative">
+    <div className="min-h-screen w-full bg-[#100C1A] text-zinc-100 flex flex-col font-body selection:bg-[#B9F503] selection:text-black overflow-x-hidden relative">
       {/* Top Mask Overlay with Gradient */}
       <div 
         className="fixed top-0 left-0 right-0 h-[110px] z-40 pointer-events-none"
         style={{
-          background: "linear-gradient(to bottom, #0a0a0a 0px, #0a0a0a 50px, transparent 100%)"
+          background: "linear-gradient(to bottom, #100C1A 0px, #100C1A 50px, transparent 100%)"
         }}
       />
 
@@ -36,24 +36,24 @@ export default function Home() {
               className="w-full h-full opacity-30"
               style={{
                 backgroundImage: `
-                  linear-gradient(to right, rgba(0, 255, 65, 0.16) 1px, transparent 1px),
-                  linear-gradient(to bottom, rgba(0, 255, 65, 0.16) 1px, transparent 1px)
+                  linear-gradient(to right, rgba(92, 41, 234, 0.16) 1px, transparent 1px),
+                  linear-gradient(to bottom, rgba(92, 41, 234, 0.16) 1px, transparent 1px)
                 `,
                 backgroundSize: "44px 44px",
               }}
             />
             {/* Smooth Vignette */}
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_70%_at_50%_50%,transparent_20%,#0a0a0a_88%)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_70%_at_50%_50%,transparent_20%,#100C1A_88%)]" />
           </div>
 
           {/* Subtle Matrix glow backdrop */}
-          <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3/5 h-4/5 bg-[#00ff41]/5 rounded-full blur-3xl z-0 pointer-events-none" />
+          <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3/5 h-4/5 bg-[#B9F503]/5 rounded-full blur-3xl z-0 pointer-events-none" />
 
           {/* Left Column (Content) */}
           <div className="w-full lg:w-[62%] xl:w-[64%] flex flex-col items-start justify-center gap-7 z-20 py-10 lg:py-0 pointer-events-auto lg:mt-20 mt-10">
             <h1 className="text-5xl sm:text-7xl lg:text-8xl xl:text-[6.2rem] 2xl:text-[7rem] font-title font-bold tracking-tight text-white leading-[1.06] opacity-0 animate-fade-in-up">
               <span className="block">Arthur Roberto</span>
-              <div className="bg-[#00ff41] block w-fit px-4 py-1.5 sm:px-5 sm:py-2 mt-3 rounded-sm">
+              <div className="bg-[#B9F503] block w-fit px-4 py-1.5 sm:px-5 sm:py-2 mt-3 rounded-sm">
                 <span className="text-black text-2xl sm:text-4xl lg:text-5xl font-subtitle font-black tracking-tight block">
                   Desenvolvedor Full Stack
                 </span>
@@ -72,13 +72,13 @@ export default function Home() {
             <div className="flex flex-wrap items-center gap-5 pt-16 sm:pt-24 opacity-0 animate-fade-in-up [animation-delay:450ms]">
               <a 
                 href="#projects"
-                className="px-8 py-4 sm:px-10 sm:py-4.5 rounded-xl bg-[#00ff41] text-black font-title font-bold text-base sm:text-lg lg:text-xl hover:bg-[#00e038] transition-all cursor-pointer active:scale-95"
+                className="px-8 py-4 sm:px-10 sm:py-4.5 rounded-xl bg-[#B9F503] text-black font-title font-bold text-base sm:text-lg lg:text-xl hover:bg-[#A4D903] transition-all cursor-pointer active:scale-95"
               >
                 Entrar em Contato
               </a>
               <a 
                 href="#contact"
-                className="px-8 py-4 sm:px-9 sm:py-4.5 rounded-xl border-2 border-zinc-700 bg-zinc-900/80 font-bold hover:bg-zinc-800 hover:border-[zinc-500 text-zinc-200 font-title text-base sm:text-lg lg:text-xl transition-all cursor-pointer flex items-center gap-2 active:scale-95"
+                className="px-8 py-4 sm:px-9 sm:py-4.5 rounded-xl border-2 border-[#5C29EA] bg-[#5C29EA] font-bold hover:bg-[#4920BC] text-white font-title text-base sm:text-lg lg:text-xl transition-all cursor-pointer flex items-center gap-2 active:scale-95"
               >
                 Ver meus Projetos
               </a>
@@ -93,7 +93,7 @@ export default function Home() {
 
           {/* Right Column - 3D Globe anchored to right */}
           <div className="absolute right-[100px] sm:right-[140px] lg:right-[180px] xl:right-[200px] top-1/2 -translate-y-1/2 translate-x-[50%] w-[400px] sm:w-[560px] lg:w-[860px] xl:w-[1260px] 2xl:w-[1560px] h-[400px] sm:h-[560px] lg:h-[860px] xl:h-[1260px] 2xl:h-[1560px] flex-shrink-0 flex items-center justify-center pointer-events-auto z-10 group opacity-0 animate-globe-in [animation-delay:300ms]">
-            <WireframeGlobe color="#00FF4C" />
+            <WireframeGlobe color="#B9F503" />
           </div>
         </section>
 
@@ -112,8 +112,8 @@ export default function Home() {
 
             {/* 3D Monitor Canvas */}
             <div className="w-full h-[420px] sm:h-[500px] flex items-center justify-center relative">
-              <div className="absolute inset-0 bg-[#00ff41]/5 rounded-full blur-3xl pointer-events-none" />
-              <WireframeMonitor color="#00FF4C" className="w-full h-full max-w-[540px]" />
+              <div className="absolute inset-0 bg-[#B9F503]/5 rounded-full blur-3xl pointer-events-none" />
+              <WireframeMonitor color="#B9F503" className="w-full h-full max-w-[540px]" />
             </div>
           </div>
         </section>
@@ -155,17 +155,17 @@ export default function Home() {
               ].map((proj) => (
                 <div 
                   key={proj.id}
-                  className="group relative rounded-xl border border-zinc-800/80 bg-zinc-900/30 p-7 hover:border-[#00ff41]/60 hover:bg-zinc-900/70 transition-all duration-300 flex flex-col justify-between hover:shadow-[0_0_30px_rgba(0,255,65,0.12)] hover:-translate-y-1"
+                  className="group relative rounded-xl border border-zinc-800/80 bg-zinc-900/30 p-7 hover:border-[#B9F503]/60 hover:bg-zinc-900/70 transition-all duration-300 flex flex-col justify-between hover:shadow-[0_0_30px_rgba(92, 41, 234,0.12)] hover:-translate-y-1"
                 >
                   <div className="flex flex-col gap-4">
                     <div className="flex items-center justify-between border-b border-zinc-800/60 pb-3">
-                       <span className="text-xs font-mono text-[#00ff41] tracking-wider">PROJECT_{proj.id}.tsx</span>
-                      <span className="text-[10px] font-mono px-2 py-0.5 rounded border border-[#00ff41]/30 bg-[#00ff41]/10 text-[#00ff41]">
+                       <span className="text-xs font-mono text-[#B9F503] tracking-wider">PROJECT_{proj.id}.tsx</span>
+                      <span className="text-[10px] font-mono px-2 py-0.5 rounded border border-[#B9F503]/30 bg-[#B9F503]/10 text-[#B9F503]">
                         {proj.status}
                       </span>
                     </div>
 
-                    <h3 className="text-xl font-title font-bold text-zinc-100 group-hover:text-[#00ff41] transition-colors">
+                    <h3 className="text-xl font-title font-bold text-zinc-100 group-hover:text-[#B9F503] transition-colors">
                       {proj.title}
                     </h3>
                     <p className="text-sm text-zinc-400 font-body leading-relaxed">
@@ -213,7 +213,7 @@ export default function Home() {
                 },
               ].map((cat) => (
                 <div key={cat.category} className="p-6 rounded-xl border border-zinc-800/80 bg-zinc-900/30 flex flex-col gap-4">
-                  <div className="text-sm font-mono text-[#00ff41] border-b border-zinc-800/80 pb-2 flex items-center justify-between">
+                  <div className="text-sm font-mono text-[#B9F503] border-b border-zinc-800/80 pb-2 flex items-center justify-between">
                     <span>// {cat.category}</span>
                     <span className="text-[10px] text-zinc-500">{cat.items.length} ITENS</span>
                   </div>
@@ -221,7 +221,7 @@ export default function Home() {
                     {cat.items.map((tech) => (
                       <span 
                         key={tech}
-                        className="px-3.5 py-1.5 rounded-lg border border-zinc-800 bg-zinc-900/60 text-zinc-300 font-subtitle text-xs sm:text-sm hover:border-[#00ff41]/50 hover:text-[#00ff41] hover:bg-zinc-900 transition-colors shadow-sm"
+                        className="px-3.5 py-1.5 rounded-lg border border-zinc-800 bg-zinc-900/60 text-zinc-300 font-subtitle text-xs sm:text-sm hover:border-[#B9F503]/50 hover:text-[#B9F503] hover:bg-zinc-900 transition-colors shadow-sm"
                       >
                         {tech}
                       </span>
@@ -236,7 +236,7 @@ export default function Home() {
         {/* Contact Section */}
         <section id="contact" className="w-full px-6 sm:px-12 md:px-20 lg:px-[144px] py-20 relative z-20 scroll-mt-24">
           <div className="rounded-2xl border border-zinc-800/80 bg-zinc-900/30 p-8 sm:p-14 flex flex-col sm:flex-row items-center justify-between gap-8 relative overflow-hidden">
-            <div className="absolute -right-20 -bottom-20 w-80 h-80 bg-[#00ff41]/5 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -right-20 -bottom-20 w-80 h-80 bg-[#B9F503]/5 rounded-full blur-3xl pointer-events-none" />
             <div className="flex flex-col gap-2 text-center sm:text-left z-10">
               <TypingTitle 
                 text="Vamos construir algo incrível juntos?"
@@ -247,7 +247,7 @@ export default function Home() {
             </div>
             <a 
               href="mailto:arthur.roberto@example.com"
-              className="px-8 py-4 rounded-lg bg-[#00ff41] text-black font-title font-bold text-sm hover:bg-[#00e038] transition-all whitespace-nowrap active:scale-95 z-10"
+              className="px-8 py-4 rounded-lg bg-[#B9F503] text-black font-title font-bold text-sm hover:bg-[#A4D903] transition-all whitespace-nowrap active:scale-95 z-10"
             >
               Iniciar Conversa
             </a>
