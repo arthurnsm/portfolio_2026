@@ -76,13 +76,13 @@ export default function Home() {
             <div className="flex w-full flex-col min-[420px]:flex-row flex-wrap items-stretch min-[420px]:items-center gap-3 sm:gap-5 pt-2 sm:pt-8 lg:pt-16 ">
               <a
                 href="#contact"
-                className="text-center px-6 py-4 sm:px-10 sm:py-4.5 rounded-xl bg-[#B9F503] text-black font-title font-bold text-base sm:text-lg lg:text-xl hover:bg-[#A4D903] transition-all cursor-pointer active:scale-95"
+                className="text-center px-6 py-4 sm:px-10 sm:py-4.5 rounded-xl bg-[#5827D0] font-title border-4 hover:border-[#5C28EA] hover:text-[#B9F503] border-transparent font-bold text-base sm:text-lg lg:text-xl hover:bg-[#4920BC] transition-all cursor-pointer active:scale-95"
               >
                 Entrar em Contato
               </a>
               <a
                 href="#projects"
-                className="justify-center px-6 py-4 sm:px-9 sm:py-4.5 rounded-xl border-2 border-[#5C29EA] bg-[#5C29EA] font-bold hover:bg-[#4920BC] hover:border-[#4920BC] text-white font-title text-base sm:text-lg lg:text-xl transition-all cursor-pointer flex items-center gap-2 active:scale-95"
+                className="justify-center px-6 py-4 sm:px-9 sm:py-4.5 rounded-xl  border-transparent bg-[#5827D0]  hover:text-[#B9F503] font-bold hover:bg-[#4920BC] hover:border-[#5C28EA] border-4 font-title text-base sm:text-lg lg:text-xl transition-all cursor-pointer flex items-center gap-2 active:scale-95"
               >
                 Ver meus Projetos
               </a>
