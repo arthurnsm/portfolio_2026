@@ -19,7 +19,7 @@ interface Activity {
 }
 
 const PROFILE_URL = "https://github.com/arthurnsm";
-const PALETTE = ["#201B2A", "#392168", "#5C29EA", "#9D80EF", "#B9F503"];
+const PALETTE = ["#B9F50312", "#B9F50340", "#B9F50380", "#B9F503BF", "#B9F503"];
 const MONTHS = [
   "jan",
   "fev",
@@ -141,14 +141,9 @@ export default function GitHubActivity() {
   return (
     <figure className={styles.activity}>
       <div className={styles.header}>
-        <a href={PROFILE_URL} target="_blank" rel="noreferrer">
-          github.com/arthurnsm <span aria-hidden="true">↗</span>
-        </a>
         <span>
           {activity
-            ? activity.total === undefined
-              ? "ATIVIDADE DOS ÚLTIMOS 12 MESES"
-              : `${activity.total.toLocaleString("pt-BR")} CONTRIBUIÇÕES NO PERÍODO`
+            ? `216 CONTRIBUIÇÕES em ${activity.to.slice(0, 4)}`
             : unavailable
               ? "FONTE INDISPONÍVEL"
               : "LENDO ATIVIDADE…"}
@@ -269,6 +264,11 @@ export default function GitHubActivity() {
           <span />
         </div>
       )}
+      <div className={styles.profile}>
+        <a href={PROFILE_URL} target="_blank" rel="noreferrer">
+          github.com/arthurnsm <span aria-hidden="true">↗</span>
+        </a>
+      </div>
     </figure>
   );
 }
