@@ -1,12 +1,12 @@
-/* Arthur Roberto — phosphor green, open source and personal experiments. */
+/* Arthur Roberto — lime and violet, open source and personal experiments. */
 .portfolio-content {
-  --signal: #00ff41;
+  --signal: #B9F503;
   --card-radius: 8px;
   --page-gutter: 20px;
   --line: #292b29;
   position: relative;
   z-index: 20;
-  background: #0a0a0a;
+  background: #100C1A;
 }
 .content-width {
   width: 100%;
@@ -87,7 +87,7 @@
   white-space: nowrap;
 }
 .section-workstation {
-  background: #0a0a0a;
+  background: #100C1A;
 }
 .workstation-grid {
   display: grid;
@@ -397,7 +397,7 @@
   width: 7px;
   height: 7px;
   border: 1px solid #6f976f;
-  background: #0a0a0a;
+  background: #100C1A;
   position: absolute;
   top: 27px;
   left: -4px;
@@ -888,7 +888,7 @@ body:has(.case-dialog[open]) {
 }
 .portfolio-section::after {
   width: 54px;
-  background: #00ff41;
+  background: #B9F503;
   opacity: 0;
 }
 .portfolio-section[data-visible="true"]::after {

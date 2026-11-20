@@ -238,7 +238,7 @@ export default function PortfolioContent() {
             </div>
             <div className="workstation-model" data-reveal>
               <div className="monitor-stage">
-                <WireframeMonitor color="#00FF4C" />
+                <WireframeMonitor color="#B9F503" />
               </div>
               <p className="model-hint">
                 Arraste para explorar <span aria-hidden="true">↔</span>

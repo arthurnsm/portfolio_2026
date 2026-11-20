@@ -19,7 +19,7 @@ interface Activity {
 }
 
 const PROFILE_URL = "https://github.com/arthurnsm";
-const PALETTE = ["#18201b", "#153e25", "#1d6c36", "#24ac48", "#00ff41"];
+const PALETTE = ["#201B2A", "#392168", "#5C29EA", "#9D80EF", "#B9F503"];
 const MONTHS = [
   "jan",
   "fev",

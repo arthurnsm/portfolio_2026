@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0a0a0a;
+  --background: #100C1A;
   --foreground: #ededed;
 }
 
@@ -209,7 +209,7 @@ abbr[title] {
 /* Keep keyboard navigation and touch interaction consistent with the neon theme. */
 a:focus-visible,
 button:focus-visible {
-  outline: 2px solid #00ff41;
+  outline: 2px solid #B9F503;
   outline-offset: 4px;
 }
 
