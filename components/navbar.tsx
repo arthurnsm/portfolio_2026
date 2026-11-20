@@ -163,7 +163,7 @@ export default function Navbar() {
               onClick={(e) => handleClick(e, link.id)}
               className={`flex min-h-11 items-center py-1.5 px-3 rounded-lg  transition-all duration-300 relative group cursor-pointer ${
                 isActive
-                  ? "bg-zinc-800/80 border-zinc-700/70 text-white "
+                  ? "bg-zinc-100/10 border-zinc-700/70 text-white trampare "
                   : "border-transparent text-zinc-400 hover:text-white hover:bg-zinc-800/40"
               }`}
             >

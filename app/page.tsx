@@ -14,15 +14,9 @@ import { portfolio } from "@/data/portfolio";
 
 export default function Home() {
   return (
-    <div className="min-h-screen w-full bg-[#100C1A] text-zinc-100 flex flex-col font-body selection:bg-[#B9F503] selection:text-black overflow-x-hidden relative">
+    <div className="min-h-screen w-full bg-black text-zinc-100 flex flex-col font-body selection:bg-[#B9F503] selection:text-black overflow-x-hidden relative">
       {/* Top Mask Overlay with Gradient */}
-      <div
-        className="fixed top-0 left-0 right-0 h-[110px] z-40 pointer-events-none"
-        style={{
-          background:
-            "linear-gradient(to bottom, #100C1A 0px, #100C1A 50px, transparent 100%)",
-        }}
-      />
+   
 
       {/* Floating Top Navigation Bar */}
       <div className="fixed top-[max(12px,env(safe-area-inset-top))] md:top-[20px] left-0 right-0 z-50 flex justify-center px-5 sm:px-10 md:px-12 lg:px-16 xl:px-[144px] pointer-events-none">
