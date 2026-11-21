@@ -76,7 +76,7 @@ export default function Home() {
             <div className="flex w-full flex-col min-[420px]:flex-row flex-wrap items-stretch min-[420px]:items-center gap-3 sm:gap-5 pt-2 sm:pt-8 lg:pt-16 ">
               <a
                 href="#contact"
-                className="text-center px-6 py-4 sm:px-10 sm:py-4.5 rounded-xl bg-[#B9F503] text-black font-title border-4 border-transparent font-bold text-base sm:text-lg lg:text-xl hover:bg-[#A4D903] transition-all cursor-pointer active:scale-95"
+                className="text-center px-6 py-4 sm:px-10 sm:py-4.5 rounded-xl bg-[#5C29EA] font-title border-4 hover:border-[#5C28EA] hover:text-[#E5DAFF] border-transparent font-bold text-base sm:text-lg lg:text-xl hover:bg-[#4920BC] transition-all cursor-pointer active:scale-95"
               >
                 Entrar em Contato
               </a>
