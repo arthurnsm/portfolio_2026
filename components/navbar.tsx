@@ -127,7 +127,7 @@ export default function Navbar() {
   return (
     <header
       ref={headerRef}
-      className="relative w-full min-h-16 md:min-h-14 px-3 sm:px-5 md:px-6 py-2 rounded-xl backdrop-blur-md shadow-[0_12px_40px_rgba(0,0,0,0.7)] flex items-center justify-between pointer-events-auto transition-all"
+      className="relative w-full min-h-16 md:min-h-14 px-3 sm:px-5 md:px-6 py-2 rounded-xl bg-[#100B1C]/90 backdrop-blur-md shadow-[0_12px_40px_rgba(0,0,0,0.7)] flex items-center justify-between pointer-events-auto transition-all"
     >
       {/* Brand / Logo */}
       <a
