@@ -192,7 +192,7 @@ export default function Navbar() {
         <a
           href="#contact"
           onClick={(e) => handleClick(e, "contact")}
-          className="group/btn inline-flex items-center font-geist min-h-11 px-3 md:px-4 py-2 rounded-xl border border-[#BFA8FF] text-[#BFA8FF] hover:bg-[#BFA8FF] hover:text-zinc-900 duration-200 transition-colors text-[15px] tracking-wider transition-all cursor-pointer font-medium"
+          className="group/btn inline-flex items-center font-geist min-h-11 px-3 md:px-4 py-2 rounded-xl border-2 border-[#B9F503] text-[#B9F503] hover:bg-[#bff51c] hover:text-zinc-900 duration-200 transition-colors text-[15px] tracking-wider transition-all cursor-pointer font-medium"
         >
           <span className="hidden lg:flex items-center gap-2">
             Entrar em contato
