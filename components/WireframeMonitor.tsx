@@ -79,7 +79,7 @@ export default function WireframeMonitor({
       opacity: 0.42,
     });
 
-    const screenGlowMaterial = new THREE.LineBasicMaterial({
+    const screenLineMaterial = new THREE.LineBasicMaterial({
       color: new THREE.Color("#5C29EA"),
       transparent: true,
       opacity: 0.9,
@@ -445,7 +445,7 @@ export default function WireframeMonitor({
       "position",
       new THREE.Float32BufferAttribute(termPts, 3)
     );
-    crtHead.add(new THREE.LineSegments(termGeo, screenGlowMaterial));
+    crtHead.add(new THREE.LineSegments(termGeo, screenLineMaterial));
 
     // Blinking terminal block cursor on the CRT screen
     const cursorGeo = new THREE.PlaneGeometry(0.11, 0.14);
@@ -561,12 +561,10 @@ export default function WireframeMonitor({
 
     const onPointerEnter = () => {
       isHovered = true;
-      container.style.filter = "drop-shadow(0 0 6px rgba(92, 41, 234, 0.65))";
     };
 
     const onPointerLeave = () => {
       isHovered = false;
-      container.style.filter = "drop-shadow(0 0 4px rgba(92, 41, 234, 0.5))";
     };
 
     const onPointerDown = (e: PointerEvent) => {
@@ -665,10 +663,7 @@ export default function WireframeMonitor({
   return (
     <div
       ref={mountRef}
-      className={`w-full h-full aspect-square cursor-grab active:cursor-grabbing select-none relative flex items-center justify-center transition-[filter] duration-500 ease-out ${className}`}
-      style={{
-        filter: "drop-shadow(0 0 4px rgba(92, 41, 234, 0.5))",
-      }}
+      className={`w-full h-full aspect-square cursor-grab active:cursor-grabbing select-none relative flex items-center justify-center ${className}`}
     />
   );
 }
