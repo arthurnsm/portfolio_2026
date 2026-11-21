@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useId, useState, type KeyboardEvent } from "react";
-import styles from "./GitHubActivity.module.css";
 
 interface ContributionDay {
   date: string;
@@ -19,7 +18,7 @@ interface Activity {
 }
 
 const PROFILE_URL = "https://github.com/arthurnsm";
-const PALETTE = ["#150A31", "#B9F50340", "#B9F50380", "#B9F503BF", "#B9F503"];
+const LEVELS = [0, 1, 2, 3, 4];
 const MONTHS = [
   "jan",
   "fev",
@@ -123,8 +122,8 @@ export default function GitHubActivity() {
   };
 
   return (
-    <figure className={styles.activity}>
-      <div className={styles.header}>
+    <figure className="m-0 min-w-0">
+      <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-3 pb-[22px] max-md:gap-x-[18px] max-md:gap-y-0 max-md:pb-3.5 [&>span]:font-mono [&>span]:text-base [&>span]:tracking-[0.035em] [&>span]:text-[#96a69a] max-md:[&>span]:w-full max-md:[&>span]:text-[15px]">
         <span>
           {activity
             ? `216 CONTRIBUIÇÕES em ${activity.to.slice(0, 4)}`
@@ -134,7 +133,7 @@ export default function GitHubActivity() {
         </span>
       </div>
       {unavailable ? (
-        <div className={styles.unavailable} role="status">
+        <div className="flex min-h-[193px] flex-wrap items-center justify-between gap-[18px] text-[#96a69a] [&>a]:flex [&>a]:min-h-11 [&>a]:items-center [&>a]:text-[#c7d8cb] [&>a]:underline [&>a]:underline-offset-[5px]" role="status">
           <p>O GitHub não respondeu agora.</p>
           <a href={PROFILE_URL} target="_blank" rel="noreferrer">
             Ver contribuições no perfil ↗
@@ -142,12 +141,12 @@ export default function GitHubActivity() {
         </div>
       ) : activity ? (
         <>
-          <div className={styles.chart}>
+          <div className="pt-[22px] max-md:pt-[18px]">
             <svg
               width={chartWidth}
               height="146"
               viewBox={`0 0 ${chartWidth} 146`}
-              className={styles.calendar}
+              className="block h-auto w-full outline-none outline-offset-[-2px] focus-visible:outline focus-visible:outline-1 focus-visible:outline-[#B9F503]"
               role="img"
               tabIndex={0}
               aria-labelledby={titleId}
@@ -166,7 +165,7 @@ export default function GitHubActivity() {
                     key={month.key}
                     x={month.x}
                     y="16"
-                    className={styles.month}
+                    className="fill-[#889a8d] font-mono text-[12px]"
                   >
                     {month.label}
                   </text>
@@ -180,7 +179,7 @@ export default function GitHubActivity() {
                     key={day.label}
                     x="0"
                     y={38 + day.row * 15}
-                    className={styles.weekday}
+                    className="fill-[#889a8d] font-mono text-[12px]"
                   >
                     {day.label}
                   </text>
@@ -196,10 +195,8 @@ export default function GitHubActivity() {
                       width="11"
                       height="11"
                       rx="2"
-                      fill={PALETTE[day.level]}
-                      className={
-                        selected === index ? styles.selected : styles.cell
-                      }
+                      className={`[&[data-level="0"]]:fill-[#150A31] [&[data-level="1"]]:fill-[#B9F50340] [&[data-level="2"]]:fill-[#B9F50380] [&[data-level="3"]]:fill-[#B9F503BF] [&[data-level="4"]]:fill-[#B9F503] ${selected === index ? "stroke-[#B9F503] stroke-[1.5px]" : "transition-opacity duration-150 hover:opacity-65 motion-reduce:transition-none"}`}
+                      data-level={day.level}
                       onMouseEnter={() => setSelected(index)}
                       onClick={() => setSelected(index)}
                     >
@@ -210,16 +207,16 @@ export default function GitHubActivity() {
               </g>
             </svg>
           </div>
-          <figcaption className={styles.caption}>
-            <span className={styles.activeDay} role="status">
+          <figcaption className="mt-[7px] flex flex-wrap items-center justify-between gap-x-6 gap-y-2.5 font-mono text-base text-[#9bab9f] max-md:gap-2">
+            <span className="min-h-6 max-md:w-full max-md:text-[15px]" role="status">
               {activeDay
                 ? dayLabel(activeDay)
                 : `${activity.from.slice(0, 7)} — ${activity.to.slice(0, 7)}`}
             </span>
-            <span className={styles.legend}>
+            <span className="inline-flex items-center gap-[5px] text-[15px]">
               Menos{" "}
-              {PALETTE.map((color) => (
-                <i key={color} style={{ backgroundColor: color }} />
+              {LEVELS.map((level) => (
+                <i key={level} data-level={level} className="size-[11px] rounded-[2px] [&[data-level='0']]:bg-[#150A31] [&[data-level='1']]:bg-[#B9F50340] [&[data-level='2']]:bg-[#B9F50380] [&[data-level='3']]:bg-[#B9F503BF] [&[data-level='4']]:bg-[#B9F503]" />
               ))}{" "}
               Mais
             </span>
@@ -228,7 +225,7 @@ export default function GitHubActivity() {
         </>
       ) : (
         <div
-          className={styles.loading}
+          className="flex min-h-[193px] flex-col gap-[5px] py-7 [&>span]:h-[11px] [&>span]:w-full [&>span]:rounded-[2px] [&>span]:bg-[#18201b] [&>span]:opacity-80"
           role="status"
           aria-label="Carregando contribuições do GitHub"
         >
@@ -241,10 +238,10 @@ export default function GitHubActivity() {
           <span />
         </div>
       )}
-      <div className={styles.profile}>
-        <a href={PROFILE_URL} target="_blank" rel="noreferrer">
-          <img src="https://github.com/arthurnsm.png?size=96" width={40} height={40} alt="" loading="lazy" />
-          github.com/arthurnsm <span aria-hidden="true">↗</span>
+      <div className="mt-3 flex justify-end">
+        <a className="inline-flex min-h-11 max-w-full items-center gap-3 rounded-xl border border-[#352849] bg-[#151022] px-3 py-2 font-mono text-[21px] text-[#d3ded5] transition-colors duration-200 hover:text-[#B9F503]" href={PROFILE_URL} target="_blank" rel="noreferrer">
+          <img className="shrink-0 rounded-full" src="https://github.com/arthurnsm.png?size=96" width={40} height={40} alt="" loading="lazy" />
+          github.com/arthurnsm <span className="text-[#B9F503]" aria-hidden="true">↗</span>
         </a>
       </div>
     </figure>

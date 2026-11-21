@@ -33,14 +33,7 @@ export default function Home() {
           {/* Permanent Subtle Grid Background (Layered at z-0 so it is always 100% visible) */}
           <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
             <div
-              className="w-full h-full opacity-30"
-              style={{
-                backgroundImage: `
-                  linear-gradient(to right, rgba(92, 41, 234, 0.16) 1px, transparent 1px),
-                  linear-gradient(to bottom, rgba(92, 41, 234, 0.16) 1px, transparent 1px)
-                `,
-                backgroundSize: "44px 44px",
-              }}
+              className="h-full w-full bg-[linear-gradient(to_right,rgba(92,41,234,0.16)_1px,transparent_1px),linear-gradient(to_bottom,rgba(92,41,234,0.16)_1px,transparent_1px)] bg-size-[44px_44px] opacity-30"
             />
             {/* Smooth Vignette */}
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_70%_at_50%_50%,transparent_20%,#09060F_88%)]" />
