@@ -248,7 +248,6 @@ export default function PortfolioContent() {
           <div className="section-heading-row">
             <SectionTitle
               index="02"
-              label="PROJETOS SELECIONADOS"
               title="O que tenho feito."
             />
             <span className="system-label section-side-note">
@@ -329,7 +328,6 @@ export default function PortfolioContent() {
             <div>
               <SectionTitle
                 index="03"
-                label="TRAJETÓRIA"
                 title="Experiência."
               />
             </div>
