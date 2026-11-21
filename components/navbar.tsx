@@ -163,7 +163,7 @@ export default function Navbar() {
               onClick={(e) => handleClick(e, link.id)}
               className={`flex min-h-11 items-center py-1.5 px-3 rounded-lg  transition-all duration-300 relative group cursor-pointer ${
                 isActive
-                  ? "bg-zinc-100/10 text-white trampare "
+                  ? "bg-zinc-100/10 border-zinc-700/70 text-white trampare "
                   : "border-transparent text-zinc-400 hover:text-white hover:bg-zinc-800/40"
               }`}
             >
@@ -192,7 +192,7 @@ export default function Navbar() {
         <a
           href="#contact"
           onClick={(e) => handleClick(e, "contact")}
-          className="group/btn inline-flex items-center font-geist min-h-11 px-3 md:px-4 py-2 rounded-xl text-[#B9F503] hover:bg-[#bff51c] hover:text-zinc-900 duration-200 transition-colors text-[15px] tracking-wider transition-all cursor-pointer font-medium"
+          className="group/btn inline-flex items-center font-geist min-h-11 px-3 md:px-4 py-2 rounded-xl border-2 border-[#B9F503] text-[#B9F503] hover:bg-[#bff51c] hover:text-zinc-900 duration-200 transition-colors text-[15px] tracking-wider transition-all cursor-pointer font-medium"
         >
           <span className="hidden lg:flex items-center gap-2">
             Entrar em contato
@@ -220,7 +220,7 @@ export default function Navbar() {
           aria-controls="mobile-navigation"
           aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
           onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden min-h-11 min-w-11 flex items-center justify-center rounded-lg text-zinc-100 hover:bg-zinc-800"
+          className="md:hidden min-h-11 min-w-11 flex items-center justify-center rounded-lg text-zinc-100 hover:bg-zinc-800 border border-zinc-700"
         >
           <svg
             aria-hidden="true"
@@ -244,7 +244,7 @@ export default function Navbar() {
         id="mobile-navigation"
         aria-label="Navegação móvel"
         hidden={!menuOpen}
-        className="md:hidden absolute top-full mt-2 left-0 right-0 p-2 rounded-xl bg-zinc-950 backdrop-blur-md shadow-xl max-h-[70svh] overflow-y-auto"
+        className="md:hidden absolute top-full mt-2 left-0 right-0 p-2 rounded-xl border border-zinc-800 bg-zinc-950 backdrop-blur-md shadow-xl max-h-[70svh] overflow-y-auto"
       >
         {navLinks.map(({ label, href, id, icon: Icon }) => (
           <a
