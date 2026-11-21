@@ -136,11 +136,11 @@ export default function Navbar() {
         aria-label="Arthur Roberto — início"
         className="group min-h-11 shrink-0 flex items-center gap-2 font-title font-bold text-[17px] sm:text-[19px] tracking-tight text-white hover:opacity-90 transition-opacity"
       >
-        <span className="font-mono text-[#B9F503] text-[15px] opacity-75">
+        <span className="font-mono text-[#BFA8FF] text-[15px] opacity-75">
           &lt;
         </span>
         <span className="tracking-wider">AR</span>
-        <span className="font-mono text-[#B9F503] text-[15px] opacity-75">
+        <span className="font-mono text-[#BFA8FF] text-[15px] opacity-75">
           /&gt;
         </span>
       </a>
@@ -192,7 +192,7 @@ export default function Navbar() {
         <a
           href="#contact"
           onClick={(e) => handleClick(e, "contact")}
-          className="group/btn inline-flex items-center font-geist min-h-11 px-3 md:px-4 py-2 rounded-xl border border-[#B9F503] text-[#B9F503] hover:bg-[#B9F503] hover:text-zinc-900 duration-200 transition-colors text-[15px] tracking-wider transition-all cursor-pointer font-medium"
+          className="group/btn inline-flex items-center font-geist min-h-11 px-3 md:px-4 py-2 rounded-xl border border-[#BFA8FF] text-[#BFA8FF] hover:bg-[#BFA8FF] hover:text-zinc-900 duration-200 transition-colors text-[15px] tracking-wider transition-all cursor-pointer font-medium"
         >
           <span className="hidden lg:flex items-center gap-2">
             Entrar em contato
@@ -252,7 +252,7 @@ export default function Navbar() {
             href={href}
             onClick={(event) => handleClick(event, id)}
             aria-current={activeSection === id ? "location" : undefined}
-            className={`flex items-center gap-3 min-h-12 px-4 py-3 rounded-lg font-geist text-base ${activeSection === id ? "bg-zinc-800 text-[#B9F503]" : "text-zinc-300 hover:bg-zinc-800"}`}
+            className={`flex items-center gap-3 min-h-12 px-4 py-3 rounded-lg font-geist text-base ${activeSection === id ? "bg-zinc-800 text-[#BFA8FF]" : "text-zinc-300 hover:bg-zinc-800"}`}
           >
             <Icon size={21} aria-hidden="true" />
             {label}

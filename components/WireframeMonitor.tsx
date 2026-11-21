@@ -9,7 +9,7 @@ interface WireframeMonitorProps {
 }
 
 export default function WireframeMonitor({
-  color = "#B9F503",
+  color = "#5C29EA",
   className = "",
 }: WireframeMonitorProps) {
   const mountRef = useRef<HTMLDivElement | null>(null);
@@ -65,7 +65,7 @@ export default function WireframeMonitor({
 
     // 2. Materials (Matrix Neon Green with Hover Support & Solid Occlusion)
     const baseColor = new THREE.Color(color);
-    const hoverColor = new THREE.Color("#B9F503");
+    const hoverColor = new THREE.Color("#5C29EA");
 
     const edgeMaterial = new THREE.LineBasicMaterial({
       color: baseColor.clone(),
@@ -80,21 +80,21 @@ export default function WireframeMonitor({
     });
 
     const screenGlowMaterial = new THREE.LineBasicMaterial({
-      color: new THREE.Color("#B9F503"),
+      color: new THREE.Color("#5C29EA"),
       transparent: true,
       opacity: 0.9,
     });
 
     // Dark occlusion material so back-facing wireframes don't clutter the front view
     const occluderMaterial = new THREE.MeshBasicMaterial({
-      color: 0x070a08,
+      color: 0x09060f,
       polygonOffset: true,
       polygonOffsetFactor: 1,
       polygonOffsetUnits: 1,
     });
 
     const screenGlassMaterial = new THREE.MeshBasicMaterial({
-      color: 0x031407,
+      color: 0x140c27,
       polygonOffset: true,
       polygonOffsetFactor: 1,
       polygonOffsetUnits: 1,
@@ -450,7 +450,7 @@ export default function WireframeMonitor({
     // Blinking terminal block cursor on the CRT screen
     const cursorGeo = new THREE.PlaneGeometry(0.11, 0.14);
     const cursorMat = new THREE.MeshBasicMaterial({
-      color: 0xB9F503,
+      color: 0x5C29EA,
       side: THREE.DoubleSide,
     });
     const cursorMesh = new THREE.Mesh(cursorGeo, cursorMat);
@@ -529,7 +529,7 @@ export default function WireframeMonitor({
     const ledGeo = new THREE.BoxGeometry(0.06, 0.04, 0.04);
     const ledMesh = new THREE.Mesh(
       ledGeo,
-      new THREE.MeshBasicMaterial({ color: 0xB9F503 })
+      new THREE.MeshBasicMaterial({ color: 0x5C29EA })
     );
     ledMesh.position.set(1.06, -1.32, 0.84);
     crtHead.add(ledMesh);
@@ -561,12 +561,12 @@ export default function WireframeMonitor({
 
     const onPointerEnter = () => {
       isHovered = true;
-      container.style.filter = "drop-shadow(0 0 6px rgba(185, 245, 3, 0.65))";
+      container.style.filter = "drop-shadow(0 0 6px rgba(92, 41, 234, 0.65))";
     };
 
     const onPointerLeave = () => {
       isHovered = false;
-      container.style.filter = "drop-shadow(0 0 4px rgba(185, 245, 3, 0.5))";
+      container.style.filter = "drop-shadow(0 0 4px rgba(92, 41, 234, 0.5))";
     };
 
     const onPointerDown = (e: PointerEvent) => {
@@ -667,7 +667,7 @@ export default function WireframeMonitor({
       ref={mountRef}
       className={`w-full h-full aspect-square cursor-grab active:cursor-grabbing select-none relative flex items-center justify-center transition-[filter] duration-500 ease-out ${className}`}
       style={{
-        filter: "drop-shadow(0 0 4px rgba(185, 245, 3, 0.5))",
+        filter: "drop-shadow(0 0 4px rgba(92, 41, 234, 0.5))",
       }}
     />
   );

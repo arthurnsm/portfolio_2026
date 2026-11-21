@@ -6,7 +6,7 @@
   --line: #292b29;
   position: relative;
   z-index: 20;
-  background: #100C1A;
+  background: #09060F;
 }
 .content-width {
   width: 100%;
@@ -87,7 +87,7 @@
   white-space: nowrap;
 }
 .section-workstation {
-  background: #100C1A;
+  background: #09060F;
 }
 .workstation-grid {
   display: grid;
@@ -397,7 +397,7 @@
   width: 7px;
   height: 7px;
   border: 1px solid #6f976f;
-  background: #100C1A;
+  background: #09060F;
   position: absolute;
   top: 27px;
   left: -4px;
