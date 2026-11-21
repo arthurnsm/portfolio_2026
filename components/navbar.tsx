@@ -127,7 +127,7 @@ export default function Navbar() {
   return (
     <header
       ref={headerRef}
-      className="relative w-full min-h-16 md:min-h-14 px-3 sm:px-5 md:px-6 py-2 rounded-xl backdrop-blur-md shadow-[0_12px_40px_rgba(0,0,0,0.7)] flex items-center justify-between pointer-events-auto transition-all"
+      className="relative w-full min-h-16 md:min-h-14 px-3 sm:px-5 md:px-6 py-2 rounded-xl bg-[#100B1C]/90 backdrop-blur-md shadow-[0_12px_40px_rgba(0,0,0,0.7)] flex items-center justify-between pointer-events-auto transition-all"
     >
       {/* Brand / Logo */}
       <a
@@ -192,7 +192,7 @@ export default function Navbar() {
         <a
           href="#contact"
           onClick={(e) => handleClick(e, "contact")}
-          className="group/btn inline-flex items-center font-geist min-h-11 px-3 md:px-4 py-2 rounded-xl border-2 border-[#B9F503] text-[#B9F503] hover:bg-[#B9F503] hover:text-zinc-900 duration-200 transition-colors text-[15px] tracking-wider transition-all cursor-pointer font-medium"
+          className="group/btn inline-flex items-center font-geist min-h-11 px-3 md:px-4 py-2 rounded-xl border border-[#BFA8FF] text-[#BFA8FF] hover:bg-[#BFA8FF] hover:text-zinc-900 duration-200 transition-colors text-[15px] tracking-wider transition-all cursor-pointer font-medium"
         >
           <span className="hidden lg:flex items-center gap-2">
             Entrar em contato
