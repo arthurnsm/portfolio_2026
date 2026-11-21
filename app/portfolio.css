@@ -867,40 +867,6 @@ body:has(.case-dialog[open]) {
 .timeline-node {
   border-radius: 50%;
 }
-.portfolio-section::before,
-.portfolio-section::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: var(--page-gutter);
-  pointer-events: none;
-  height: 1px;
-}
-.portfolio-section::before {
-  right: var(--page-gutter);
-  background: #242b26;
-}
-.portfolio-section::after {
-  width: 54px;
-  background: #B9F503;
-  opacity: 0;
-}
-.portfolio-section[data-visible="true"]::after {
-  animation: section-handoff 0.65s cubic-bezier(0.2, 0.65, 0.3, 1) both;
-}
-@keyframes section-handoff {
-  0% {
-    opacity: 0;
-    transform: translateX(0) scaleX(0.2);
-  }
-  25% {
-    opacity: 0.8;
-  }
-  100% {
-    opacity: 0;
-    transform: translateX(140px) scaleX(0.6);
-  }
-}
 @media (max-width: 767px) {
   .workstation-grid {
     grid-template-areas: "copy" "model";
@@ -924,9 +890,6 @@ body:has(.case-dialog[open]) {
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .portfolio-section::after {
-    display: none;
-  }
   .project-card:hover,
   .project-card:focus-within {
     transform: none;
