@@ -49,7 +49,6 @@ export interface PortfolioContent {
     email: string;
     github: string;
     linkedin: string;
-    intro: string;
     bio: string[];
     interests: string[];
   };
@@ -73,9 +72,8 @@ export const portfolio: PortfolioContent = {
     email,
     github: "https://github.com/arthurnsm",
     linkedin: "https://www.linkedin.com/in/arthrnsm/",
-    intro: "Interfaces na tela. Eletrônica na bancada.",
     bio: [
-      "Sou Arthur, estudante de Ciência da Computação. Desenvolvo interfaces com React, Next.js, TypeScript e Tailwind CSS.",
+      "Me chamo Arthur Roberto.",
       "Também me interesso por sistemas embarcados, hardware hacking e eletrônica. Nos meus repositórios, isso se mistura a estudos de segurança web e automações em Python.",
     ],
     interests: ["Sistemas embarcados", "Hardware hacking", "Segurança web"],

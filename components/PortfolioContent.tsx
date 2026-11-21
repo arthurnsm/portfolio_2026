@@ -18,19 +18,17 @@ import { portfolio, type PortfolioProject } from "@/data/portfolio";
 
 function SectionTitle({
   index,
-  label,
   title,
   children,
 }: {
   index: string;
-  label: string;
   title: string;
   children?: ReactNode;
 }) {
   return (
     <div className="section-heading" data-reveal>
       <p className="system-label">
-        <span className="section-index">{index} /</span> {label}
+        <span className="section-index text-2xl">{index} </span> 
       </p>
       <TypingTitle text={title} className="section-title" />
       {children ? <p className="section-description">{children}</p> : null}
@@ -220,11 +218,10 @@ export default function PortfolioContent() {
           <div className="workstation-grid">
             <div className="profile-copy" data-reveal>
               <SectionTitle
-                index="01"
-                label="SOBRE MIM"
-                title="Por trás de @arthurnsm."
+                index="SOBRE MIM"
+                
+                title="Quem sou Eu?"
               />
-              <p className="about-intro">{portfolio.profile.intro}</p>
               {portfolio.profile.bio.map((paragraph) => (
                 <p key={paragraph} className="body-copy">
                   {paragraph}
@@ -240,9 +237,7 @@ export default function PortfolioContent() {
               <div className="monitor-stage">
                 <WireframeMonitor color="#5C29EA" />
               </div>
-              <p className="model-hint">
-                Arraste para explorar <span aria-hidden="true">↔</span>
-              </p>
+
             </div>
           </div>
         </div>

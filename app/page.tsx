@@ -51,7 +51,7 @@ export default function Home() {
 
           {/* Left Column (Content) */}
           <div className="w-full lg:w-[62%] xl:w-[64%] flex flex-col items-start justify-center gap-6 sm:gap-7 z-20 py-0 pointer-events-auto lg:mt-20">
-            <h1 className="text-[clamp(2.25rem,9vw,4.5rem)] lg:text-[clamp(3.5rem,5.8vw,7rem)] font-title font-bold tracking-tight text-[#E5DAFF] leading-[1.06] ">
+            <h1 className="text-[clamp(2.25rem,9vw,4.5rem)] lg:text-[clamp(3.5rem,5.8vw,7rem)] font-title font-bold tracking-tight text[#DBDBDB] leading-[1.06] ">
               <span className="block">
                 <DecodedText text={portfolio.profile.name} />
               </span>
@@ -61,13 +61,8 @@ export default function Home() {
                 </span>
               </span>
             </h1>
-            <div className="flex flex-wrap gap-2 sm:gap-3.5 mb-2 ">
-              <Stack name="ReactJS" />
-              <Stack name="NextJS" />
-              <Stack name="TailwindCSS" />
-              <Stack name="Typescript" />
-            </div>
-            <p className="text-lg sm:text-xl lg:text-2xl xl:text-[1.55rem] font-body text-[#BDB2CD] max-w-2xl xl:max-w-3xl leading-relaxed hero-copy-enter">
+
+            <p className="text-lg sm:text-xl lg:text-2xl xl:text-[1.55rem] font-body text-[#DBDBDB] max-w-2xl xl:max-w-3xl leading-relaxed hero-copy-enter">
               Construo interfaces web modernas de alta fidelidade com React,
               Next.js e TypeScript, unindo precisão visual em UI/UX a
               arquiteturas robustas e performáticas.
@@ -76,13 +71,13 @@ export default function Home() {
             <div className="flex w-full flex-col min-[420px]:flex-row flex-wrap items-stretch min-[420px]:items-center gap-3 sm:gap-5 pt-2 sm:pt-8 lg:pt-16 ">
               <a
                 href="#contact"
-                className="text-center px-6 py-4 sm:px-10 sm:py-4.5 rounded-xl bg-[#5C29EA] font-title border-4 hover:border-[#5C28EA] hover:text-[#E5DAFF] border-transparent font-bold text-base sm:text-lg lg:text-xl hover:bg-[#4920BC] transition-all cursor-pointer active:scale-95"
+                className="text-center px-6 py-4 sm:px-10 sm:py-4.5 rounded-xl bg-[#5C29EA] font-title border-4 hover:border-[#5C28EA] hover:text-[#DBDBDB] border-transparent font-bold text-base sm:text-lg lg:text-xl hover:bg-[#4920BC] transition-all cursor-pointer active:scale-95"
               >
                 Entrar em Contato
               </a>
               <a
                 href="#projects"
-                className="justify-center px-6 py-4 sm:px-9 sm:py-4.5 rounded-xl  border-transparent bg-[#5C29EA]  hover:text-[#E5DAFF] font-bold hover:bg-[#4920BC] hover:border-[#5C28EA] border-4 font-title text-base sm:text-lg lg:text-xl transition-all cursor-pointer flex items-center gap-2 active:scale-95"
+                className="justify-center px-6 py-4 sm:px-9 sm:py-4.5 rounded-xl  border-transparent bg-[#5C29EA]  hover:text-[#DBDBDB] font-bold hover:bg-[#4920BC] hover:border-[#5C28EA] border-4 font-title text-base sm:text-lg lg:text-xl transition-all cursor-pointer flex items-center gap-2 active:scale-95"
               >
                 Ver meus Projetos
               </a>
