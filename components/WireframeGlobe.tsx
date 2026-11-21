@@ -32,10 +32,6 @@ export default function WireframeGlobe({
     renderer.setClearColor(0x000000, 0); // 100% transparent background
     
     const domElement = renderer.domElement;
-    domElement.style.touchAction = "pan-y pinch-zoom";
-    domElement.style.display = "block";
-    domElement.style.width = "100%";
-    domElement.style.height = "100%";
     container.appendChild(domElement);
 
     const handleResize = () => {
@@ -143,12 +139,10 @@ export default function WireframeGlobe({
 
     const onPointerOver = () => {
       isHovered = true;
-      container.style.filter = "drop-shadow(0 0 5px rgba(92, 41, 234, 0.6))";
     };
 
     const onPointerOut = () => {
       isHovered = false;
-      container.style.filter = "drop-shadow(0 0 3px rgba(92, 41, 234, 0.45))";
     };
 
     domElement.addEventListener("pointerdown", onPointerDown);
@@ -211,11 +205,7 @@ export default function WireframeGlobe({
   return (
     <div
       ref={mountRef}
-      className={`w-full h-full aspect-square cursor-grab active:cursor-grabbing select-none relative flex items-center justify-center ${className}`}
-      style={{
-        filter: "drop-shadow(0 0 3px rgba(92, 41, 234, 0.45))",
-        transition: "filter 0.5s ease",
-      }}
+      className={`w-full h-full aspect-square cursor-grab active:cursor-grabbing select-none relative flex items-center justify-center [filter:drop-shadow(0_0_3px_rgba(92,41,234,0.45))] hover:[filter:drop-shadow(0_0_5px_rgba(92,41,234,0.6))] transition-[filter] duration-500 ease-[ease] [&>canvas]:block [&>canvas]:size-full [&>canvas]:[touch-action:pan-y_pinch-zoom] ${className}`}
     />
   );
 }

@@ -1,10 +1,5 @@
 @import "tailwindcss";
 
-:root {
-  --background: #09060F;
-  --foreground: #ededed;
-}
-
 @theme {
   --font-geist: var(--font-geist), sans-serif;
   --font-title: var(--font-montserrat), sans-serif;
@@ -70,154 +65,48 @@
   50% { opacity: 0; }
 }
 
-html {
-  scroll-behavior: smooth;
+@keyframes file-open {
+  from {
+    opacity: 0.6;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-catamaran), sans-serif;
-  cursor: url("/cursor/Pointer.cur"), default;
+@keyframes terminal-caret {
+  0%,
+  55% {
+    opacity: 1;
+  }
+  56%,
+  100% {
+    opacity: 0;
+  }
 }
 
-/* Bibata Custom Cursors System */
-html,
-body,
-.cursor-default,
-.cursor-auto {
-  cursor: url("/cursor/Pointer.cur"), default;
+@keyframes text-register {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0);
+  }
 }
 
-/* Internal Links, Buttons & Interactive Elements */
-a,
-button,
-[role="button"],
-input[type="submit"],
-input[type="button"],
-label[for],
-select,
-summary,
-.cursor-pointer {
-  cursor: url("/cursor/Link.cur"), pointer !important;
-}
-
-/* External Links (target="_blank" or external http/https) */
-a[target="_blank"],
-a[rel*="external"],
-a[href^="http"]:not([href*="localhost"]),
-.cursor-external {
-  cursor: url("/cursor/Link.cur"), pointer !important;
-}
-
-/* Loading, Busy & Background Work States */
-.cursor-wait,
-[aria-busy="true"],
-html.is-loading,
-html.is-loading * {
-  cursor: url("/cursor/Busy.cur"), url("/cursor/Busy.ani"), wait !important;
-}
-
-.cursor-progress,
-.is-working {
-  cursor: url("/cursor/Work.cur"), url("/cursor/Work.ani"), progress !important;
-}
-
-/* 3D Canvas & Dragging States (Pan & Grabbing) */
-.cursor-grab,
-.cursor-grab canvas {
-  cursor: url("/cursor/Pan.cur"), grab !important;
-}
-
-.cursor-grabbing,
-.cursor-grabbing canvas,
-.cursor-grab:active,
-.cursor-grab:active canvas,
-.active\:cursor-grabbing:active {
-  cursor: url("/cursor/Grabbing.cur"), grabbing !important;
-}
-
-/* Text Selection & Inputs */
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="search"],
-input[type="url"],
-input[type="tel"],
-input[type="number"],
-textarea,
-[contenteditable="true"],
-.cursor-text {
-  cursor: url("/cursor/Text.cur"), text !important;
-}
-
-/* Disabled / Unavailable Elements */
-:disabled,
-[disabled],
-[aria-disabled="true"],
-.cursor-not-allowed {
-  cursor: url("/cursor/Unavailable.cur"), not-allowed !important;
-}
-
-/* Additional Bibata Utility Cursors */
-.cursor-help,
-abbr[title] {
-  cursor: url("/cursor/Help.cur"), help !important;
-}
-
-.cursor-move {
-  cursor: url("/cursor/Move.cur"), move !important;
-}
-
-.cursor-crosshair {
-  cursor: url("/cursor/Cross.cur"), crosshair !important;
-}
-
-.cursor-zoom-in {
-  cursor: url("/cursor/Zoom-in.cur"), zoom-in !important;
-}
-
-.cursor-zoom-out {
-  cursor: url("/cursor/Zoom-out.cur"), zoom-out !important;
-}
-
-.cursor-pin {
-  cursor: url("/cursor/Pin.cur"), pointer !important;
-}
-
-.cursor-person {
-  cursor: url("/cursor/Person.cur"), pointer !important;
-}
-
-.cursor-ns-resize {
-  cursor: url("/cursor/Vert.cur"), ns-resize !important;
-}
-
-.cursor-ew-resize {
-  cursor: url("/cursor/Horz.cur"), ew-resize !important;
-}
-
-.cursor-nwse-resize {
-  cursor: url("/cursor/Dgn1.cur"), nwse-resize !important;
-}
-
-.cursor-nesw-resize {
-  cursor: url("/cursor/Dgn2.cur"), nesw-resize !important;
-}
-
-
-/* Keep keyboard navigation and touch interaction consistent with the neon theme. */
-a:focus-visible,
-button:focus-visible {
-  outline: 2px solid #B9F503;
-  outline-offset: 4px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto !important; }
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+@keyframes terminal-mark {
+  0% {
+    opacity: 0.85;
+    transform: translateX(0);
+  }
+  70% {
+    opacity: 0.85;
+    transform: translateX(1.2em);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(1.5em);
   }
 }

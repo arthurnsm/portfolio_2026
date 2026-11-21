@@ -1,7 +1,6 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import styles from "./DecodedText.module.css";
 
 interface DecodedTextProps {
   text: string;
@@ -77,21 +76,21 @@ export default function DecodedText({
   const parts = Array.from(text.matchAll(/\S+|\s+/g));
   return (
     <span
-      className={`${styles.root} ${className}`}
+      className={`[font:inherit] text-inherit ${className}`}
       onPointerEnter={(event) => {
         if (event.pointerType === "mouse") decode();
       }}
     >
-      <span className={styles.accessible}>{text}</span>
+      <span className="sr-only">{text}</span>
       <span aria-hidden="true">
         {parts.map((match) => {
           const part = match[0];
           const start = match.index;
           if (/^\s+$/.test(part)) return part;
           return (
-            <span key={start} className={styles.word}>
-              <span className={styles.measure}>{part}</span>
-              <span className={styles.effect}>
+            <span key={start} className="relative inline-block align-baseline whitespace-nowrap">
+              <span className="invisible motion-reduce:visible">{part}</span>
+              <span className="absolute inset-0 overflow-clip motion-reduce:hidden">
                 {displayedText.slice(start, start + part.length)}
               </span>
             </span>

@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import styles from "./TypingTitle.module.css";
 
 interface TypingTitleProps {
   text: string;
@@ -41,7 +40,7 @@ export default function TypingTitle({
   return (
     <h2
       ref={headingRef}
-      className={`${styles.heading} min-w-0 leading-snug ${className}`}
+      className={`relative after:pointer-events-none after:absolute after:bottom-[-0.15em] after:left-0 after:h-0.5 after:w-[0.65em] after:bg-[#00ff41] after:opacity-0 after:content-[''] data-[entered=true]:after:animate-[terminal-mark_220ms_steps(3,end)_both] motion-reduce:data-[entered=true]:after:animate-none min-w-0 leading-snug ${className}`}
     >
       {text}
     </h2>

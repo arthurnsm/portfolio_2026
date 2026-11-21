@@ -33,10 +33,6 @@ export default function WireframeMonitor({
     renderer.setClearColor(0x000000, 0);
 
     const domElement = renderer.domElement;
-    domElement.style.touchAction = "pan-y pinch-zoom";
-    domElement.style.display = "block";
-    domElement.style.width = "100%";
-    domElement.style.height = "100%";
     container.appendChild(domElement);
 
     const handleResize = () => {
@@ -663,7 +659,7 @@ export default function WireframeMonitor({
   return (
     <div
       ref={mountRef}
-      className={`w-full h-full aspect-square cursor-grab active:cursor-grabbing select-none relative flex items-center justify-center ${className}`}
+      className={`w-full h-full aspect-square cursor-grab active:cursor-grabbing select-none relative flex items-center justify-center [&>canvas]:block [&>canvas]:size-full [&>canvas]:[touch-action:pan-y_pinch-zoom] ${className}`}
     />
   );
 }
