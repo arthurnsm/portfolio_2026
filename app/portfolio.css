@@ -140,7 +140,7 @@
   flex-wrap: wrap;
   gap: 16px;
   margin-block: 32px 26px;
-  border-bottom: 1px solid var(--line);
+
   padding-bottom: 18px;
 }
 .project-filters {
@@ -307,7 +307,7 @@
   gap: 8px 0;
   margin-top: 25px;
   padding-top: 18px;
-  border-top: 1px solid var(--line);
+
   color: #a6b7aa;
   font-family: var(--font-vt323), monospace;
   font-size: 17px;
@@ -377,7 +377,7 @@
   gap: 90px;
 }
 .timeline-entry {
-  border-bottom: 1px solid var(--line);
+
   padding-left: 25px;
   position: relative;
   border-left: 1px solid #352849;
@@ -564,7 +564,7 @@ details[open] > summary .details-plus {
   gap: 16px 30px;
   justify-content: space-between;
   padding-block: 30px;
-  border-top: 1px solid var(--line);
+
   color: #8c958d;
   font-size: 14px;
 }
