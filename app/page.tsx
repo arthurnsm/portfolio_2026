@@ -13,8 +13,8 @@ import { portfolio } from "@/data/portfolio";
 
 export default function Home() {
   return (
-    <div className={`min-h-screen w-full bg-[var(--background)] text-zinc-100 flex flex-col font-body selection:bg-[#5C29EA] selection:text-white overflow-x-hidden relative
-        [&_.portfolio-content]:[--signal:#B9F503] [&_.portfolio-content]:[--card-radius:8px] [&_.portfolio-content]:[--page-gutter:20px] [&_.portfolio-content]:[--line:#272133] [&_.portfolio-content]:[position:relative] [&_.portfolio-content]:[z-index:20] [&_.portfolio-content]:[background:#09060F]
+    <div className={`min-h-screen w-full bg-[var(--background)] text-zinc-100 flex flex-col font-body selection:bg-[#5C29EA] selection:text-white overflow-x-hidden relative [--page-gutter:24px] sm:[--page-gutter:48px] md:[--page-gutter:60px] lg:[--page-gutter:80px] xl:[--page-gutter:160px]
+        [&_.portfolio-content]:[--signal:#B9F503] [&_.portfolio-content]:[--card-radius:8px] [&_.portfolio-content]:[--line:#272133] [&_.portfolio-content]:[position:relative] [&_.portfolio-content]:[z-index:20] [&_.portfolio-content]:[background:#09060F]
         [&_.content-width]:[width:100%] [&_.content-width]:[max-width:none] [&_.content-width]:[padding-inline:var(--page-gutter)]
         [&_.portfolio-section]:[padding-block:80px] [&_.portfolio-section]:[border-top:0] [&_.portfolio-section]:[scroll-margin-top:100px] [&_.portfolio-section]:[position:relative]
         [&_.system-label]:[font-family:var(--font-vt323),_monospace] [&_.system-label]:[font-weight:400] [&_.system-label]:[font-size:17px] [&_.system-label]:[line-height:1.25] [&_.system-label]:[letter-spacing:0.04em] [&_.system-label]:[color:#a1a1aa]
@@ -155,15 +155,10 @@ export default function Home() {
         [@media(max-width:767px)]:[&_.portfolio-footer_>_.system-label]:[width:100%]
         [@media(max-width:767px)]:[&_.dialog-content]:[padding:24px_20px]
         [@media(max-width:380px)]:[&_.project-card-content]:[padding:18px]
-        [@media(max-width:380px)]:[&_.contact-inner]:[padding-inline:0]
         [@media(hover:none)]:[&_.visual-open-label]:[transform:none] [@media(hover:none)]:[&_.visual-open-label]:[padding-block:6px] [@media(hover:none)]:[&_.visual-open-label]:[font-size:14px] [@media(hover:none)]:[&_.visual-open-label]:[background:#16351e] [@media(hover:none)]:[&_.visual-open-label]:[color:#b5dfbe] [@media(hover:none)]:[&_.visual-open-label]:[display:none]
         [@media(prefers-reduced-motion:reduce)]:[&_.reveal-enabled]:[opacity:1] [@media(prefers-reduced-motion:reduce)]:[&_.reveal-enabled]:[transform:none]
         [@media(prefers-reduced-motion:reduce)]:[&_.hero-copy-enter]:[clip-path:none]
         [@media(prefers-reduced-motion:reduce)]:[&_.terminal-cursor]:[animation:none]
-        [@media(min-width:640px)]:[&_.portfolio-content]:[--page-gutter:40px]
-        [@media(min-width:768px)]:[&_.portfolio-content]:[--page-gutter:48px]
-        [@media(min-width:1024px)]:[&_.portfolio-content]:[--page-gutter:64px]
-        [@media(min-width:1280px)]:[&_.portfolio-content]:[--page-gutter:144px]
         [&_.profile-copy]:[grid-area:copy] [&_.profile-copy]:[width:100%] [&_.profile-copy]:[max-width:700px] [&_.profile-copy]:[justify-self:end]
         [&_.workstation-model]:[grid-area:model] [&_.workstation-model]:[min-width:0]
         [&_.model-hint]:[font-family:var(--font-vt323),_monospace] [&_.model-hint]:[font-size:15px] [&_.model-hint]:[color:#717c74] [&_.model-hint]:[text-align:center] [&_.model-hint]:[margin-top:-16px]
@@ -185,7 +180,7 @@ export default function Home() {
    
 
       {/* Floating Top Navigation Bar */}
-      <div className="fixed top-[max(12px,env(safe-area-inset-top))] md:top-[20px] left-0 right-0 z-50 flex justify-center px-5 sm:px-10 md:px-12 lg:px-16 xl:px-[144px] pointer-events-none">
+      <div className="fixed top-[max(12px,env(safe-area-inset-top))] md:top-[20px] left-0 right-0 z-50 flex justify-center px-[var(--page-gutter)] pointer-events-none">
         <Navbar />
       </div>
 
@@ -194,7 +189,7 @@ export default function Home() {
         {/* Hero Section - Full Screen with Balanced 3D Globe */}
         <section
           id="about"
-          className="w-full min-h-svh flex flex-col lg:flex-row items-center justify-between px-5 sm:px-10 md:px-12 lg:px-16 xl:px-[144px] pt-28 pb-10 lg:py-0 relative overflow-hidden scroll-mt-24"
+          className="w-full min-h-svh flex flex-col lg:flex-row items-center justify-between px-[var(--page-gutter)] pt-28 pb-10 lg:py-0 relative overflow-hidden scroll-mt-24"
         >
           {/* Permanent Subtle Grid Background (Layered at z-0 so it is always 100% visible) */}
           <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
