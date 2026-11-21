@@ -11,6 +11,8 @@
   padding-bottom: 22px;
 }
 .profile {
+  display: flex;
+  justify-content: flex-end;
   margin-top: 12px;
 }
 .profile a {
@@ -18,10 +20,19 @@
   align-items: center;
   gap: 12px;
   min-height: 44px;
+  max-width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #352849;
+  border-radius: 12px;
+  background: #151022;
   color: #d3ded5;
   font-family: var(--font-vt323), monospace;
   font-size: 21px;
   transition: color 0.2s;
+}
+.profile img {
+  flex-shrink: 0;
+  border-radius: 50%;
 }
 .profile a:hover {
   color: #B9F503;
@@ -35,20 +46,14 @@
   color: #96a69a;
   letter-spacing: 0.035em;
 }
-.scroll {
-  width: 100%;
-  overflow-x: auto;
-  overscroll-behavior-inline: contain;
+.chart {
   padding-top: 22px;
-  scrollbar-width: thin;
-  scrollbar-color: #45345C transparent;
 }
 .calendar {
   display: block;
   width: 100%;
-  min-width: 825px;
   height: auto;
-  min-height: 146px;
+  outline: none;
   outline-offset: -2px;
 }
 .calendar:focus-visible {
@@ -95,16 +100,6 @@
   height: 11px;
   border-radius: 2px;
 }
-.help {
-  font-family: var(--font-catamaran), sans-serif;
-  font-size: 13px;
-  color: #788b7d;
-  line-height: 1.5;
-  margin-top: 10px;
-}
-.help span {
-  display: none;
-}
 .unavailable {
   display: flex;
   align-items: center;
@@ -145,15 +140,8 @@
     font-size: 15px;
     width: 100%;
   }
-  .scroll {
+  .chart {
     padding-top: 18px;
-  }
-  .calendar {
-    width: 825px;
-    height: 146px;
-  }
-  .help span {
-    display: inline;
   }
   .caption {
     gap: 8px;

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useId, useRef, useState, type KeyboardEvent } from "react";
+import { useEffect, useId, useState, type KeyboardEvent } from "react";
 import styles from "./GitHubActivity.module.css";
 
 interface ContributionDay {
@@ -67,9 +67,7 @@ export default function GitHubActivity() {
   const [activity, setActivity] = useState<Activity | null>(null);
   const [unavailable, setUnavailable] = useState(false);
   const [selected, setSelected] = useState<number | null>(null);
-  const scrollRef = useRef<HTMLDivElement>(null);
   const titleId = useId();
-  const helpId = useId();
 
   useEffect(() => {
     const controller = new AbortController();
@@ -85,11 +83,6 @@ export default function GitHubActivity() {
       });
     return () => controller.abort();
   }, []);
-
-  useEffect(() => {
-    if (activity && scrollRef.current)
-      scrollRef.current.scrollLeft = scrollRef.current.scrollWidth;
-  }, [activity]);
 
   const firstDate = activity ? new Date(`${activity.from}T00:00:00Z`) : null;
   const offset = firstDate?.getUTCDay() ?? 0;
@@ -127,15 +120,6 @@ export default function GitHubActivity() {
     event.preventDefault();
     next = Math.max(0, Math.min(activity.days.length - 1, next));
     setSelected(next);
-    const x = 30 + Math.floor((next + offset) / 7) * 15;
-    const scroll = scrollRef.current;
-    if (
-      scroll &&
-      (x < scroll.scrollLeft + 30 ||
-        x > scroll.scrollLeft + scroll.clientWidth - 20)
-    ) {
-      scroll.scrollLeft = Math.max(0, x - scroll.clientWidth / 2);
-    }
   };
 
   return (
@@ -158,7 +142,7 @@ export default function GitHubActivity() {
         </div>
       ) : activity ? (
         <>
-          <div className={styles.scroll} ref={scrollRef}>
+          <div className={styles.chart}>
             <svg
               width={chartWidth}
               height="146"
@@ -167,7 +151,6 @@ export default function GitHubActivity() {
               role="img"
               tabIndex={0}
               aria-labelledby={titleId}
-              aria-describedby={helpId}
               onKeyDown={moveSelection}
               onFocus={() => setSelected(activity.days.length - 1)}
               onMouseLeave={() => setSelected(null)}
@@ -260,6 +243,7 @@ export default function GitHubActivity() {
       )}
       <div className={styles.profile}>
         <a href={PROFILE_URL} target="_blank" rel="noreferrer">
+          <img src="https://github.com/arthurnsm.png?size=96" width={40} height={40} alt="" loading="lazy" />
           github.com/arthurnsm <span aria-hidden="true">↗</span>
         </a>
       </div>
