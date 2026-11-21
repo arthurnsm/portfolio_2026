@@ -203,7 +203,6 @@
   position: relative;
   overflow: hidden;
   background: #0c100d;
-  border-bottom: 1px solid #352849;
 }
 .visual-open-label {
   display: flex;
@@ -245,7 +244,6 @@
   padding: 8px 18px;
   color: #a6b3a8;
   background: #0c100df2;
-  border-top: 1px solid #352849;
   font-family: var(--font-vt323), monospace;
   font-size: 15px;
   line-height: 1.3;
@@ -496,7 +494,6 @@ details[open] > summary .details-plus {
   gap: 8px;
   max-width: 780px;
   margin-top: 34px;
-  border-block: 1px solid #352849;
   padding-block: 13px;
 }
 .contact-address > a {
@@ -606,7 +603,6 @@ body:has(.case-dialog[open]) {
   position: sticky;
   top: 0;
   background: #17201a;
-  border-bottom: 1px solid #352849;
   padding: 10px 15px;
   z-index: 2;
 }
