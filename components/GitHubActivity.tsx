@@ -19,7 +19,7 @@ interface Activity {
 }
 
 const PROFILE_URL = "https://github.com/arthurnsm";
-const PALETTE = ["#5C29EA40", "#B9F50340", "#B9F50380", "#B9F503BF", "#B9F503"];
+const PALETTE = ["#150A31", "#B9F50340", "#B9F50380", "#B9F503BF", "#B9F503"];
 const MONTHS = [
   "jan",
   "fev",
@@ -241,13 +241,7 @@ export default function GitHubActivity() {
               Mais
             </span>
           </figcaption>
-          <p id={helpId} className={styles.help}>
-            Use as setas para consultar cada dia.
-            <span>
-              {" "}
-              No celular, deslize o quadro para ver os meses anteriores.
-            </span>
-          </p>
+
         </>
       ) : (
         <div

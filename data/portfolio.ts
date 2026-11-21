@@ -50,7 +50,6 @@ export interface PortfolioContent {
     github: string;
     linkedin: string;
     bio: string[];
-    interests: string[];
   };
   projects: PortfolioProject[];
   experience: PortfolioExperience[];
@@ -73,10 +72,9 @@ export const portfolio: PortfolioContent = {
     github: "https://github.com/arthurnsm",
     linkedin: "https://www.linkedin.com/in/arthrnsm/",
     bio: [
-      "Me chamo Arthur Roberto.",
+      "Me chamo Arthur Roberto, de .",
       "Também me interesso por sistemas embarcados, hardware hacking e eletrônica. Nos meus repositórios, isso se mistura a estudos de segurança web e automações em Python.",
     ],
-    interests: ["Sistemas embarcados", "Hardware hacking", "Segurança web"],
   },
   projects: [
     {

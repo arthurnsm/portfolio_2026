@@ -227,11 +227,7 @@ export default function PortfolioContent() {
                   {paragraph}
                 </p>
               ))}
-              <ul className="profile-interests" aria-label="Interesses">
-                {portfolio.profile.interests.map((interest) => (
-                  <li key={interest}>{interest}</li>
-                ))}
-              </ul>
+               <GitHubActivity />
             </div>
             <div className="workstation-model" data-reveal>
               <div className="monitor-stage">
@@ -366,7 +362,7 @@ export default function PortfolioContent() {
 
       <section id="github" className="portfolio-section section-github">
         <div className="content-width">
-          <GitHubActivity />
+         
         </div>
       </section>
 
